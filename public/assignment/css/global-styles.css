@@ -39,3 +39,7 @@ li.borderless {
     border-bottom-left-radius: 8px;
     opacity: 0.7;
 }
+
+textarea {
+    resize: vertical;
+}
