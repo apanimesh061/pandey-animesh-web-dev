@@ -1,0 +1,41 @@
+body {
+    padding-top : 60px;
+    padding-bottom : 60px;
+}
+
+.login-register-body {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.widget-container {
+    z-index: 1000;
+    position: absolute;
+    right: 15px;
+    background-color: white;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    border-bottom-left-radius: 2px;
+}
+
+.header-footer {
+    background-color: #F2F2F2;
+}
+
+.header-title {
+    color: black;
+}
+
+li.borderless {
+    border: 0 none;
+}
+
+.widget-edit-media {
+    position: absolute;
+    right: 15px;
+    background-color: white;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    border-bottom-left-radius: 8px;
+    opacity: 0.7;
+}

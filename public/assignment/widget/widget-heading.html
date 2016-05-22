@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>Edit Widget Heading</title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/global-styles.css">
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid header-footer">
+                    <div class="navbar-text navbar-left pull-left">
+                        <a href="../page/page-list.html" class="navbar-link">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    <a class="navbar-brand">Widget Edit</a>
+                    <div class="navbar-text pull-right">
+                        <a href="../page/page-list.html" class="navbar-link">
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="container-fluid">
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input name="name" id="name" type="text" class="form-control" placeholder="page name"/>
+                </div>
+                <div class="form-group">
+                    <label for="text">Text</label>
+                    <input name="text" id="text" type="text" class="form-control" placeholder="heading" value="Some Random Heading"/>
+                </div>
+                <div class="form-group">
+                    <label for="size">Title</label>
+                    <input name="size" id="size" type="text" class="form-control" placeholder="font size" value="12"/>
+                </div>
+                <a class="btn btn-block btn-danger" href="widget-list.html">Delete</a>
+            </form>
+        </div>
+
+        <footer>
+            <nav class="navbar navbar-default navbar-fixed-bottom">
+                <div class="container-fluid header-footer">
+                    <div class="navbar-text pull-right">
+                        <a href="../user/profile.html">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </footer>
+    </body>
+</html>
