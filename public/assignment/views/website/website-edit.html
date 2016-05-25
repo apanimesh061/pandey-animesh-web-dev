@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <meta name="viewport" content="initial-scale=1.25, user-scalable=no">
-        <title>Edit Widget URL</title>
+        <title>Edit Website</title>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../css/global-styles.css">
     </head>
@@ -15,13 +16,13 @@
             <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container-fluid header-footer">
                     <div class="navbar-text navbar-left pull-left">
-                        <a href="widget-list.html" class="navbar-link">
+                        <a href="website-list.html" class="navbar-link">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </a>
                     </div>
-                    <a class="navbar-brand">Widget Edit</a>
+                    <a class="navbar-brand">Edit Website</a>
                     <div class="navbar-text pull-right">
-                        <a href="widget-list.html" class="navbar-link">
+                        <a href="website-list.html" class="navbar-link">
                             <span class="glyphicon glyphicon-ok"></span>
                         </a>
                     </div>
@@ -32,30 +33,27 @@
         <div class="container-fluid">
             <form>
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input name="name" id="name" type="text" class="form-control"/>
+                    <label for="name">Website Name</label>
+                    <input name="name" id="name" type="text" class="form-control" placeholder="Lorem Ipsum" value="Blog Name"/>
                 </div>
                 <div class="form-group">
-                    <label for="text">Text</label>
-                    <input name="text" id="text" type="text" class="form-control"/>
+                    <label for="description">Website Description</label>
+                    <textarea rows="3" name="description" id="description" class="form-control" placeholder="Lorem ipsum dolor sit amet...">Blogger is a blog-publishing service that allows multi-user blogs with time-stamped entries. It was developed by Pyra Labs, which was bought by Google in 2003. Generally, the blogs are hosted by Google at a subdomain of blogspot.com. Blogs can also be hosted in the registered custom domain of the blogger. So blogspot.com domain publishings will be redirected to the custom domain. A user can have up to 100 blogs per account.</textarea>
                 </div>
-                <div class="form-group">
-                    <label for="w-url">URL</label>
-                    <input name="w-url" id="w-url" type="text" class="form-control" value="https://youtu.be/j_pC0-Jfsq0"/>
-                </div>
-                <div class="form-group">
-                    <label for="width">Width</label>
-                    <input name="width" id="width" type="text" class="form-control"/>
-                </div>
-                <a class="btn btn-block btn-danger" href="widget-list.html">Delete</a>
+                <a class="btn btn-block btn-danger" href="website-list.html">Delete</a>
             </form>
         </div>
 
         <footer>
             <nav class="navbar navbar-default navbar-fixed-bottom">
                 <div class="container-fluid header-footer">
+                    <div class="navbar-text pull-left">
+                        <a href="" class="navbar-link">
+                            <span class="glyphicon glyphicon-share-alt"></span>
+                        </a>
+                    </div>
                     <div class="navbar-text pull-right">
-                        <a href="../user/profile.html">
+                        <a href="../user/profile.view.client.html">
                             <span class="glyphicon glyphicon-user"></span>
                         </a>
                     </div>
@@ -63,4 +61,5 @@
             </nav>
         </footer>
     </body>
+
 </html>
