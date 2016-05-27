@@ -5,7 +5,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <meta name="viewport" content="initial-scale=1.25, user-scalable=no">
-        <title>Edit Widget Image</title>
+        <title>Edit Widget URL</title>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../css/global-styles.css">
     </head>
@@ -15,13 +15,13 @@
             <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container-fluid header-footer">
                     <div class="navbar-text navbar-left pull-left">
-                        <a href="widget-list.html" class="navbar-link">
+                        <a href="widget-list.view.client.html" class="navbar-link">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </a>
                     </div>
                     <a class="navbar-brand">Widget Edit</a>
                     <div class="navbar-text pull-right">
-                        <a href="widget-list.html" class="navbar-link">
+                        <a href="widget-list.view.client.html" class="navbar-link">
                             <span class="glyphicon glyphicon-ok"></span>
                         </a>
                     </div>
@@ -32,27 +32,22 @@
         <div class="container-fluid">
             <form>
                 <div class="form-group">
-                    <label for="widget-name">Name</label>
-                    <input name="widget-name" id="widget-name" type="text" class="form-control" placeholder="image name"/>
+                    <label for="name">Name</label>
+                    <input name="name" id="name" type="text" class="form-control"/>
                 </div>
                 <div class="form-group">
-                    <label for="widget-text">Text</label>
-                    <input name="widget-text" id="widget-text" type="text" class="form-control" placeholder="image text"/>
+                    <label for="text">Text</label>
+                    <input name="text" id="text" type="text" class="form-control"/>
                 </div>
                 <div class="form-group">
-                    <label for="widget-url">URL</label>
-                    <input name="widget-url" id="widget-url" type="text" class="form-control" placeholder="www.randomimage.com/image" value=""/>
+                    <label for="w-url">URL</label>
+                    <input name="w-url" id="w-url" type="text" class="form-control" value="https://youtu.be/j_pC0-Jfsq0"/>
                 </div>
                 <div class="form-group">
-                    <label for="widget-width">Width</label>
-                    <input name="widget-width" id="widget-width" type="text" class="form-control" placeholder="100%" value="100%"/>
+                    <label for="width">Width</label>
+                    <input name="width" id="width" type="text" class="form-control"/>
                 </div>
-                <div class="form-group">
-                    <label for="widget-file">Upload</label>
-                    <input name="widget-file" id="widget-file" type="file" class="form-control"/>
-                </div>
-                <a class="btn btn-block btn-primary" href="widget-image.html">Upload Image</a>
-                <a class="btn btn-block btn-danger" href="widget-list.html">Delete</a>
+                <a class="btn btn-block btn-danger" href="widget-list.view.client.html">Delete</a>
             </form>
         </div>
 

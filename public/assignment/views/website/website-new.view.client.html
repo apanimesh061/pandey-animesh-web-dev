@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <meta name="viewport" content="initial-scale=1.25, user-scalable=no">
-        <title>Edit Widget URL</title>
+        <title>New Website</title>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../css/global-styles.css">
     </head>
@@ -15,42 +16,32 @@
             <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container-fluid header-footer">
                     <div class="navbar-text navbar-left pull-left">
-                        <a href="widget-list.html" class="navbar-link">
+                        <a href="website-list.view.client.html" class="navbar-link">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </a>
                     </div>
-                    <a class="navbar-brand">Widget Edit</a>
+                    <a class="navbar-brand"> New Website</a>
                     <div class="navbar-text pull-right">
-                        <a href="widget-list.html" class="navbar-link">
+                        <a href="website-new.view.client.html" class="navbar-link">
                             <span class="glyphicon glyphicon-ok"></span>
                         </a>
                     </div>
                 </div>
             </nav>
         </header>
-
         <div class="container-fluid">
             <form>
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input name="name" id="name" type="text" class="form-control"/>
+                    <label for="name">Website Name</label>
+                    <input name="name" id="name" type="text" class="form-control" placeholder="Name"/>
                 </div>
+
                 <div class="form-group">
-                    <label for="text">Text</label>
-                    <input name="text" id="text" type="text" class="form-control"/>
+                    <label for="description">Website Description</label>
+                        <textarea rows="3" name="description" id="description" class="form-control" placeholder="Description"></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="w-url">URL</label>
-                    <input name="w-url" id="w-url" type="text" class="form-control" value="https://youtu.be/j_pC0-Jfsq0"/>
-                </div>
-                <div class="form-group">
-                    <label for="width">Width</label>
-                    <input name="width" id="width" type="text" class="form-control"/>
-                </div>
-                <a class="btn btn-block btn-danger" href="widget-list.html">Delete</a>
             </form>
         </div>
-
         <footer>
             <nav class="navbar navbar-default navbar-fixed-bottom">
                 <div class="container-fluid header-footer">
@@ -63,4 +54,5 @@
             </nav>
         </footer>
     </body>
+
 </html>
