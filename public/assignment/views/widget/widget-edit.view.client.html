@@ -8,7 +8,7 @@
             </div>
             <a class="navbar-brand">Widget Edit</a>
             <div class="navbar-text pull-right">
-                <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget" class="navbar-link">
+                <a ng-click="model.updateWidget()" class="navbar-link">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </div>
@@ -16,16 +16,15 @@
     </nav>
 </header>
 
-
 <div ng-switch="model.widget.widgetType">
     <div ng-switch-when="HEADER">
-        <div ng-include="'views/widget/widget-header.view.client.html'"></div>
+        <ng-include src="'views/widget/widget-header.view.client.html'">
     </div>
     <div ng-switch-when="IMAGE">
-        <div ng-include="'views/widget/widget-image.view.client.html'"></div>
+        <ng-include src="'views/widget/widget-image.view.client.html'">
     </div>
     <div ng-switch-when="YOUTUBE">
-        <div ng-include="'views/widget/widget-youtube.view.client.html'"></div>
+        <ng-include src="'views/widget/widget-youtube.view.client.html'">
     </div>
 </div>
 
