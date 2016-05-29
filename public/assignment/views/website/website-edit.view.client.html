@@ -1,0 +1,48 @@
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid header-footer">
+            <div class="navbar-text navbar-left pull-left">
+                <a href="#/user/{{model.uid}}/website" class="navbar-link">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </div>
+            <a class="navbar-brand">Edit Website</a>
+            <div class="navbar-text pull-right">
+                <a ng-click="model.updateWebsite()" class="navbar-link">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container-fluid">
+    <form>
+        <div class="form-group">
+            <label for="name">Website Name</label>
+            <input ng-model="model.website.name" name="name" id="name" type="text" class="form-control" placeholder="Lorem Ipsum" value="Blog Name"/>
+        </div>
+        <div class="form-group">
+            <label for="description">Website Description</label>
+            <textarea ng-model="model.website.description" rows="3" name="description" id="description" class="form-control" placeholder="Lorem ipsum dolor sit amet..."></textarea>
+        </div>
+        <a class="btn btn-block btn-danger" ng-click="model.deleteWebsite()">Delete</a>
+    </form>
+</div>
+
+<footer>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid header-footer">
+            <div class="navbar-text pull-left">
+                <a href="" class="navbar-link">
+                    <span class="glyphicon glyphicon-share-alt"></span>
+                </a>
+            </div>
+            <div class="navbar-text pull-right">
+                <a href="#/user/{{model.uid}}">
+                    <span class="glyphicon glyphicon-user"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+</footer>

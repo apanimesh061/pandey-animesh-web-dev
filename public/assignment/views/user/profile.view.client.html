@@ -1,0 +1,58 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid header-footer">
+        <a class="navbar-brand">Profile</a>
+        <div class="navbar-text pull-right">
+            <a ng-click="model.updateUser()" class="navbar-link">
+                <span class="glyphicon glyphicon-ok"></span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <div ng-show="model.success" class="alert alert-success">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+        {{model.success}}
+    </div>
+
+    <div ng-show="model.error" class="alert alert-danger">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+        {{model.error}}
+    </div>
+
+    <form>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input ng-model="model.user.username" name="username" id="username" type="text" class="form-control" placeholder="username" value="pandey.an"/>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input ng-model="model.user.email" name="email" id="email" type="email" class="form-control" placeholder="username@husky.neu.edu" value="pandey.an@husky.neu.edu"/>
+        </div>
+
+        <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input ng-model="model.user.firstName" name="first-name" id="first-name" type="text" class="form-control" placeholder="First Name" value="Animesh"/>
+        </div>
+
+        <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input ng-model="model.user.lastName" name="last-name" id="last-name" type="text" class="form-control" placeholder="Last Name" value="Pandey"/>
+        </div>
+
+        <a class="btn btn-block btn-primary" href="#/user/{{model.user._id}}/website">Websites</a>
+        <a class="btn btn-block btn-danger" href="#/login">Logout</a>
+    </form>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid header-footer">
+        <div class="navbar-text pull-right">
+            <a href="#/user/{{model.user._id}}">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
+        </div>
+    </div>
+</nav>

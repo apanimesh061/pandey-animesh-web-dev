@@ -1,0 +1,41 @@
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid header-footer">
+            <div class="navbar-text navbar-left pull-left">
+                <a href="#/user/{{model.uid}}/website" class="navbar-link">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </div>
+            <a class="navbar-brand">Pages</a>
+            <div class="navbar-text pull-right">
+                <!--This is for adding new website-->
+                <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/new" class="navbar-link">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container-fluid">
+    <ul class="list-group">
+        <li class="list-group-item borderless" ng-repeat="page in model.pages">
+            <a href="#/user/{{model.uid}}/website/{{page.websiteId}}/page/{{page._id}}">
+                <span class="glyphicon glyphicon-cog pull-right"></span>
+            </a>
+            <a href="#/user/{{model.uid}}/website/{{page.websiteId}}/page/{{page._id}}/widget">{{page.name}}</a>
+        </li>
+    </ul>
+</div>
+
+<footer>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid header-footer">
+            <div class="navbar-text pull-right">
+                <a href="#/user/{{model.uid}}">
+                    <span class="glyphicon glyphicon-user"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+</footer>
