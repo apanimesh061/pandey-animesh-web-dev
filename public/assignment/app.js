@@ -4,5 +4,4 @@
 
 (function () {
     angular.module("WebAppMaker", ["ngRoute"]);
-    var uuidService = angular.module("uuidService", ["angular-uuid"]);
 })();
