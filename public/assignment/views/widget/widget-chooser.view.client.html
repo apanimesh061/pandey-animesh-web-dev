@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="viewport" content="initial-scale=1.25, user-scalable=no">
-    <title>Choose Widget</title>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/global-styles.css">
-</head>
-
-<body>
 <header>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid header-footer">
             <div class="navbar-text navbar-left pull-left">
-                <a href="widget-list.view.client.html" class="navbar-link">
+                <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget" class="navbar-link">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
@@ -28,34 +14,34 @@
 <div class="container-fluid">
     <ul class="list-group">
         <li class="list-group-item borderless">
-            <a href="widget-heading.view.client.html">Header</a>
+            <a ng-click="model.createWidget('HEADER')">Header</a>
         </li>
         <li class="list-group-item borderless">
-            <a href="widget-chooser.view.client.html">Label</a>
+            <a href="">Label</a>
         </li>
         <li class="list-group-item borderless">
-            <a href="widget-chooser.view.client.html">HTML</a>
+            <a href="">HTML</a>
         </li>
         <li class="list-group-item borderless">
-            <a href="widget-chooser.view.client.html">Text Input</a>
+            <a href="">Text Input</a>
         </li>
         <li class="list-group-item borderless">
-            <a href="widget-chooser.view.client.html">Link</a>
+            <a href="">Link</a>
         </li>
         <li class="list-group-item borderless">
-            <a href="widget-chooser.view.client.html">Button</a>
+            <a href="">Button</a>
         </li>
         <li class="list-group-item borderless">
-            <a href="widget-image.view.client.html">Image</a>
+            <a ng-click="model.createWidget('IMAGE')">Image</a>
         </li>
         <li class="list-group-item borderless">
-            <a href="widget-youtube.view.client.html">Youtube</a>
+            <a ng-click="model.createWidget('YOUTUBE')">Youtube</a>
         </li>
         <li class="list-group-item borderless">
-            <a href="widget-chooser.view.client.html">Data Table</a>
+            <a href="">Data Table</a>
         </li>
         <li class="list-group-item borderless">
-            <a href="widget-chooser.view.client.html">Repeater</a>
+            <a href="">Repeater</a>
         </li>
     </ul>
 </div>
@@ -64,13 +50,10 @@
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid header-footer">
             <div class="navbar-text pull-right">
-                <a href="../user/profile.view.client.html">
+                <a href="#/user/{{model.uid}}">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>
         </div>
     </nav>
 </footer>
-</body>
-
-</html>

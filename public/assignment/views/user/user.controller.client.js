@@ -1,8 +1,11 @@
-(function() {
+(function () {
+    
     angular
         .module("WebAppMaker")
-        .controller("RegisterController", RegisterController);
-    
+        .controller("LoginController", LoginController)
+        .controller("RegisterController", RegisterController)
+        .controller("ProfileController", ProfileController);
+
     String.prototype.hashCode = function() {
         var hash = 0;
         var char;
@@ -16,6 +19,24 @@
         return hash;
     };
 
+    function LoginController($location, UserService) {
+        var vm = this;
+        vm.login = login;
+        function login(username, password) {
+
+            console.log(username);
+
+            var user = UserService.findUserByCredentials(username, password);
+            if(user) {
+                var id = user._id;
+                $location.url("/user/" + id);
+            }
+            else {
+                vm.error = "You have entered wrong credentials";
+            }
+        }
+    }
+
     function RegisterController($location, UserService) {
         var vm = this;
         vm.register = register;
@@ -26,8 +47,8 @@
                     vm.error = "Username is already in use";
                 }
                 else if (password === passwordVerified) {
-                    // var id = (username + password).hashCode();
-                    var id = uuidService.v4();
+                    var currentTimeStamp = new Date().getTime().toString();
+                    var id = (username + password + currentTimeStamp).hashCode().toString();
                     var newUser = {
                         _id: id,
                         username: username,
@@ -45,6 +66,28 @@
             }
             else {
                 vm.error = "Please enter username and password";
+            }
+        }
+    }
+
+    function ProfileController($routeParams, UserService) {
+        var vm = this;
+        vm.updateUser = updateUser;
+
+        var uid = $routeParams["uid"];
+
+        function init() {
+            vm.user = angular.copy(UserService.findUserById(uid));
+        }
+        init();
+
+        function updateUser() {
+            var result = UserService.updateUser(vm.user._id, vm.user);
+            if(result) {
+                vm.success = "User successfully updated";
+            }
+            else {
+                vm.error = "User not successfully updated";
             }
         }
     }
