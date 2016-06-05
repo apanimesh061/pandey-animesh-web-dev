@@ -2,19 +2,19 @@
     <form>
         <div class="form-group">
             <label for="widget-name">Name</label>
-            <input ng-model="model.widget.name" id="widget-name" name="name" type="text" class="form-control"/>
+            <input ng-model="model.widget.name" id="widget-name" name="name" type="text" class="form-control" placeholder="Video Name"/>
         </div>
         <div class="form-group">
             <label for="widget-text">Text</label>
-            <input ng-model="model.widget.text" id="widget-text" name="text" type="text" class="form-control"/>
+            <input ng-model="model.widget.text" id="widget-text" name="text" type="text" class="form-control" placeholder="Video Text"/>
         </div>
         <div class="form-group">
             <label for="widget-url">URL</label>
-            <input ng-model="model.widget.url" id="widget-url" name="w-url" type="text" class="form-control" value="https://youtu.be/j_pC0-Jfsq0"/>
+            <input ng-model="model.widget.url" id="widget-url" name="w-url" type="text" class="form-control" value="https://youtu.be/j_pC0-Jfsq0" placeholder="Video Link"/>
         </div>
         <div class="form-group">
             <label for="widget-width">Width</label>
-            <input ng-model="model.widget.width" id="widget-width" name="width" type="text" class="form-control"/>
+            <input ng-model="model.widget.width" id="widget-width" name="width" type="text" class="form-control" placeholder="100%"/>
         </div>
         <a class="btn btn-block btn-danger" ng-click="model.deleteWidget()">Delete</a>
     </form>

@@ -26,7 +26,6 @@
         vm.uid = $routeParams.uid;
         vm.wid = $routeParams.wid;
         vm.pid = $routeParams.pid;
-
         function init() {
             vm.widgets = WidgetService
                 .findWidgetsByPageId(vm.pid)
@@ -48,6 +47,9 @@
         }
 
         function getTrustedURL(widget) {
+            if (null != widget.url) {
+                
+            }
             var urlParts = widget.url.split("/");
             // extract the id of the video
             // REF: http://stackoverflow.com/questions/23838025/compiling-a-trusted-resource-url-in-angular-through-a-filter-and-directive
