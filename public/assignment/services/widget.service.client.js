@@ -8,7 +8,7 @@
             return $http.post("/api/page/" + pageId + "/widget", widget);
         }
 
-        function findAllWidgetsForPage(pageId) {
+        function findWidgetsByPageId(pageId) {
             return $http.get("/api/page/" + pageId + "/widget");
         }
 
@@ -26,7 +26,7 @@
 
         return {
             createWidget: createWidget,
-            findAllWidgetsForPage: findAllWidgetsForPage,
+            findWidgetsByPageId: findWidgetsByPageId,
             findWidgetById: findWidgetById,
             updateWidget: updateWidget,
             deleteWidget: deleteWidget

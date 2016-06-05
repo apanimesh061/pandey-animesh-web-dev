@@ -29,7 +29,7 @@
 
         function init() {
             vm.widgets = WidgetService
-                .findAllWidgetsForPage(vm.pid)
+                .findWidgetsByPageId(vm.pid)
                 .then(
                     function(response) {
                         console.log(response.data);
