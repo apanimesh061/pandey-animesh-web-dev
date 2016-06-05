@@ -43,3 +43,10 @@ li.borderless {
 textarea {
     resize: vertical;
 }
+
+.image-search {
+    padding-bottom: 5px;
+}
+.flickr-image-closest {
+    padding: 1px;
+}

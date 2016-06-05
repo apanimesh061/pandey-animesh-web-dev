@@ -16,55 +16,51 @@
             hash = ((hash << 5) - hash) + char;
             hash = hash & hash;
         }
-        return hash;
+        return Math.abs(hash);
     };
 
     function LoginController($location, UserService) {
         var vm = this;
         vm.login = login;
         function login(username, password) {
-
-            console.log(username);
-
-            var user = UserService.findUserByCredentials(username, password);
-            if(user) {
-                var id = user._id;
-                $location.url("/user/" + id);
-            }
-            else {
-                vm.error = "You have entered wrong credentials";
-            }
+            UserService
+                .findUserByCredentials(username, password)
+                .then(
+                    function(response) {
+                        var user = response.data;
+                        if(user) {
+                            var id = user._id;
+                            $location.url("/user/" + id);
+                        }
+                    },
+                    function(error) {
+                        vm.error = "You have entered wrong credentials";
+                    }
+                );
         }
     }
 
     function RegisterController($location, UserService) {
         var vm = this;
         vm.register = register;
-
         function register(username, password, passwordVerified) {
             if (username && password && passwordVerified) {
-                if (UserService.findUserByUsername(username) !== null) {
-                    vm.error = "Username is already in use";
-                }
-                else if (password === passwordVerified) {
-                    var currentTimeStamp = new Date().getTime().toString();
-                    var id = (username + password + currentTimeStamp).hashCode().toString();
-                    var newUser = {
-                        _id: id,
-                        username: username,
-                        password: password,
-                        firstName: '',
-                        lastName: '',
-                        email: ''
-                    };
-                    UserService.createUser(newUser);
-                    $location.url("/user/" + id);
-                }
-                else {
+                if (password === passwordVerified) {
+                    UserService
+                        .createUser(username, password)
+                        .then(
+                            function(response) {
+                                var user = response.data;
+                                $location.url("/user/" + user._id);
+                            },
+                            function(error) {
+                                vm.error = error.data;
+                            }
+                        );
+                } else {
                     vm.error = "Password and Verification password do not match";
                 }
-            }
-            else {
+            } else {
                 vm.error = "Please enter username and password";
             }
         }
@@ -77,18 +73,30 @@
         var uid = $routeParams["uid"];
 
         function init() {
-            vm.user = angular.copy(UserService.findUserById(uid));
+            UserService
+                .findUserById(uid)
+                .then(
+                    function(response) {
+                        vm.user = response.data
+                    },
+                    function(error) {
+                        vm.error = "Could not find the User";
+                    }
+                )
         }
         init();
 
         function updateUser() {
-            var result = UserService.updateUser(vm.user._id, vm.user);
-            if(result) {
-                vm.success = "User successfully updated";
-            }
-            else {
-                vm.error = "User not successfully updated";
-            }
+            UserService
+                .updateUser(uid, vm.user)
+                .then(
+                    function(response) {
+                        vm.success = "User successfully updated";
+                    },
+                    function(error) {
+                        vm.error = error.data;
+                    }
+                )
         }
     }
 

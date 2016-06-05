@@ -1,20 +1,20 @@
 <div class="container-fluid">
     <form>
         <div class="form-group">
-            <label for="name">Name</label>
-            <input ng-model="model.widget.name" name="name" id="name" type="text" class="form-control"/>
+            <label for="widget-name">Name</label>
+            <input ng-model="model.widget.name" id="widget-name" name="name" type="text" class="form-control"/>
         </div>
         <div class="form-group">
-            <label for="text">Text</label>
-            <input ng-model="model.widget.text" name="text" id="text" type="text" class="form-control"/>
+            <label for="widget-text">Text</label>
+            <input ng-model="model.widget.text" id="widget-text" name="text" type="text" class="form-control"/>
         </div>
         <div class="form-group">
-            <label for="w-url">URL</label>
-            <input ng-model="model.widget.url" name="w-url" id="w-url" type="text" class="form-control" value="https://youtu.be/j_pC0-Jfsq0"/>
+            <label for="widget-url">URL</label>
+            <input ng-model="model.widget.url" id="widget-url" name="w-url" type="text" class="form-control" value="https://youtu.be/j_pC0-Jfsq0"/>
         </div>
         <div class="form-group">
-            <label for="width">Width</label>
-            <input ng-model="model.widget.width" name="width" id="width" type="text" class="form-control"/>
+            <label for="widget-width">Width</label>
+            <input ng-model="model.widget.width" id="widget-width" name="width" type="text" class="form-control"/>
         </div>
         <a class="btn btn-block btn-danger" ng-click="model.deleteWidget()">Delete</a>
     </form>

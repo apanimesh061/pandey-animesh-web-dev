@@ -1,30 +1,36 @@
 <!DOCTYPE html>
+
 <html lang="en" ng-app="WebAppMaker">
-<head>
-    <meta charset="UTF-8">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="viewport" content="initial-scale=1.25, user-scalable=no">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/global-styles.css">
-    <title>WAM</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
-    <script src="app.js"></script>
-    <script src="config.js"></script>
-    <!--<script src="javascript/angular-uuid.js"></script>-->
-    <script src="views/user/user.controller.client.js"></script>
-    <script src="views/website/website.controller.client.js"></script>
-    <script src="views/page/page-controller.client.js"></script>
-    <script src="views/widget/widget.controller.client.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="viewport" content="initial-scale=1.25, user-scalable=no">
 
-    <script src="service/user.service.client.js"></script>
-    <script src="service/website.service.client.js"></script>
-    <script src="service/page.service.client.js"></script>
-    <script src="service/widget.service.client.js"></script>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/global-styles.css">
 
-</head>
-<body>
-    <div ng-view></div>
-</body>
+        <title>Assignment 4</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script src="app.js"></script>
+        <script src="config.js"></script>
+
+        <script src="views/user/user.controller.client.js"></script>
+        <script src="views/website/website.controller.client.js"></script>
+        <script src="views/page/page-controller.client.js"></script>
+
+        <script src="views/widget/widget.controller.client.js"></script>
+        <script src="views/widget/widget-flickr-search.controller.client.js"></script>
+
+        <script src="services/user.service.client.js"></script>
+        <script src="services/website.service.client.js"></script>
+        <script src="services/page.service.client.js"></script>
+    </head>
+    <body>
+        <div ng-view></div>
+    </body>
 </html>

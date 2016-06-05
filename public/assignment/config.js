@@ -1,6 +1,3 @@
-/**
- * Created by animesh on 5/25/16.
- */
 
 (function () {
     angular
@@ -75,10 +72,13 @@
                 controller: "WidgetEditController",
                 controllerAs: "model"
             })
-            .otherwise({
-                redirectTo: "views/user/login.view.client.html",
-                controller: "LoginController",
+            .when("/user/:uid/website/:wid/page/:pid/widget/:wgid/flickr", {
+                templateUrl: "views/widget/widget-flickr-search.view.client.html",
+                controller: "FlickrImageSearchController",
                 controllerAs: "model"
+            })
+            .otherwise({
+                redirectTo: "/login"
             });
     }
 })();

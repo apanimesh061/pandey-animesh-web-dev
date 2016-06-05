@@ -1,7 +1,3 @@
-/**
- * Created by animesh on 5/27/16.
- */
-
 (function() {
     angular
         .module("WebAppMaker")
@@ -19,7 +15,7 @@
             hash = ((hash << 5) - hash) + char;
             hash = hash & hash;
         }
-        return hash;
+        return Math.abs(hash);
     };
 
     function EditPageController(PageService, $location, $routeParams) {
@@ -32,19 +28,50 @@
         vm.pid = $routeParams.pid;
 
         function init() {
-            vm.page = angular.copy(PageService.findPageById(vm.pid));
+            vm.page = angular.copy(
+                PageService
+                    .findPageById(vm.pid)
+                    .then(
+                        function(response) {
+                            vm.page = response.data;
+                        },
+                        function(error) {
+                            vm.error = error.data;
+                        }
+                    )
+            );
         }
         init();
 
+        //TODO: "/user/"+ vm.uid + "/website/" + vm.wid + "/page" could be constant
+
         function updatePage() {
-            console.log(vm.pid);
-            console.log(vm.page);
-            PageService.updatePage(vm.pid, vm.page);
+            PageService
+                .updatePage(vm.pid, vm.page)
+                .then(
+                    function(response) {
+                        vm.success = "Page successfully updated";
+                        $location.url("/user/"+ vm.uid + "/website/" + vm.wid + "/page");
+                    },
+                    function(error) {
+                        vm.error = error.data;
+                    }
+                );
             $location.url("/user/"+ vm.uid + "/website/" + vm.wid + "/page");
         }
 
         function deletePage() {
-            PageService.deletePage(vm.pid);
+            PageService
+                .deletePage(vm.pid)
+                .then(
+                    function(response) {
+                        vm.success = "Page successfully deleted";
+                        $location.url("/user/"+ vm.uid + "/website/" + vm.wid + "/page");
+                    },
+                    function(error) {
+                        vm.error = error.data;
+                    }
+                );
             $location.url("/user/"+ vm.uid + "/website/" + vm.wid + "/page");
         }
     }
@@ -55,7 +82,16 @@
         vm.wid = $routeParams.wid;
 
         function init() {
-            vm.pages = PageService.findPageByWebsiteId(vm.wid);
+            vm.pages = PageService
+                .findPageByWebsiteId(vm.wid)
+                .then(
+                    function(response) {
+                        vm.pages = response.data;
+                    },
+                    function(error) {
+                        vm.error = error.data;
+                    }
+                );
         }
         init();
     }
@@ -68,16 +104,28 @@
         vm.wid = $routeParams.wid;
 
         function createPage(name, title) {
-            var id = (name + title).hashCode().toString();
-            var newPage = {
-                _id: id,
-                name: name,
-                websiteId: vm.wid,
-                title: title
-            };
-            console.log(newPage);
-            PageService.createPage(vm.wid, newPage);
-            $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page");
+            if (name != null) {
+                var id = (name + title + new Date().getTime().toString()).hashCode().toString();
+                var newPage = {
+                    _id: id,
+                    name: name,
+                    websiteId: vm.wid,
+                    title: title
+                };
+                PageService
+                    .createPage(vm.wid, newPage)
+                    .then(
+                        function(response) {
+                            vm.success = "Created new page";
+                            $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page");
+                        },
+                        function(error) {
+                            vm.error = error.data;
+                        }
+                    );
+            } else {
+                vm.error = "Please enter a valid name";
+            }
         }
     }
 
