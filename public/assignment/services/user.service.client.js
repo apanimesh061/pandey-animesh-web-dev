@@ -5,19 +5,23 @@
 
     function UserService($http) {
 
-        /**
-         *
-         * @private
-         * @param username
-         * @param password
-         * @returns {*}
-         */
+        var api = {
+            createUser: createUser,
+            findUserById: findUserById,
+            findUserByUsername: findUserByUsername,
+            findUserByCredentials: findUserByCredentials,
+            updateUser: updateUser,
+            deleteUser: deleteUser
+        };
+        return api;
+
         function createUser(username, password) {
+            var url = "/api/user";
             var user = {
-                username: username,
+                username: username, 
                 password: password
             };
-            return $http.post("/api/user/", user);
+            return $http.post(url, user);
         }
 
         function findUserById(userId) {
@@ -39,20 +43,11 @@
             var url = "/api/user/" + userId;
             return $http.put(url, user);
         }
-
+        
         function deleteUser(userId) {
-            var url = "/api/user/" + userId;
+            var url="/api/user/" + userId;
             return $http.delete(url);
         }
-
-        return {
-            createUser: createUser,
-            findUserById: findUserById,
-            findUserByUsername: findUserByUsername,
-            findUserByCredentials: findUserByCredentials,
-            updateUser: updateUser,
-            deleteUser: deleteUser
-        };
     }
 
 })();

@@ -1,58 +1,85 @@
 <header>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid header-footer">
-            <div class="navbar-text navbar-left pull-left">
-                <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget" class="navbar-link">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
+            <div class="navbar-header">
+                <p class="navbar-text navbar-left pull-left">
+                    <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget"
+                       class="navbar-link">
+                        <span class="glyphicon glyphicon-chevron-left nav-glyph"></span>
+                    </a>
+                </p>
+                <a class="navbar-brand">
+                    Choose Widget
                 </a>
             </div>
-            <a class="navbar-brand">Choose Widget</a>
         </div>
     </nav>
 </header>
 
 <div class="container-fluid">
     <ul class="list-group">
-        <li class="list-group-item borderless">
-            <a ng-click="model.createWidget('HEADER')">Header</a>
+        <li class="list-group-item">
+            <a ng-click="model.createWidget('HEADER')">
+                Header
+            </a>
         </li>
-        <li class="list-group-item borderless">
-            <a href="">Label</a>
+        <li class="list-group-item">
+            <a href="">
+                Label
+            </a>
         </li>
-        <li class="list-group-item borderless">
-            <a href="">HTML</a>
+        <li class="list-group-item">
+            <a ng-click="model.createWidget('HTML')">
+                HTML
+            </a>
         </li>
-        <li class="list-group-item borderless">
-            <a href="">Text Input</a>
+        <li class="list-group-item">
+            <a ng-click="model.createWidget('TEXT')">
+                Text Input
+            </a>
         </li>
-        <li class="list-group-item borderless">
-            <a href="">Link</a>
+        <li class="list-group-item">
+            <a href="">
+                Link
+            </a>
         </li>
-        <li class="list-group-item borderless">
-            <a href="">Button</a>
+        <li class="list-group-item">
+            <a href="">
+                Button
+            </a>
         </li>
-        <li class="list-group-item borderless">
-            <a ng-click="model.createWidget('IMAGE')">Image</a>
+        <li class="list-group-item">
+            <a ng-click="model.createWidget('IMAGE')">
+                Image
+            </a>
         </li>
-        <li class="list-group-item borderless">
-            <a ng-click="model.createWidget('YOUTUBE')">YouTube</a>
+        <li class="list-group-item">
+            <a ng-click="model.createWidget('YOUTUBE')">
+                YouTube
+            </a>
         </li>
-        <li class="list-group-item borderless">
-            <a href="">Data Table</a>
+        <li class="list-group-item">
+            <a href="">
+                Data Table
+            </a>
         </li>
-        <li class="list-group-item borderless">
-            <a href="">Repeater</a>
+        <li class="list-group-item">
+            <a href="">
+                Repeater
+            </a>
         </li>
     </ul>
 </div>
 
 <footer>
     <nav class="navbar navbar-default navbar-fixed-bottom">
-        <div class="container-fluid header-footer">
-            <div class="navbar-text pull-right">
-                <a href="#/user/{{model.uid}}">
-                    <span class="glyphicon glyphicon-user"></span>
-                </a>
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-text pull-right">
+                    <a href="#/user/{{model.uid}}">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>

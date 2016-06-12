@@ -1,21 +1,35 @@
 <div class="container-fluid">
-    <form>
-        <div class="form-group">
+    <form name="form" role="form">
+        <div class="form-group"
+             ng-class="{ 'has-error': form.name.$error.required && model.submitted}">
             <label for="widget-name">Name</label>
-            <input ng-model="model.widget.name" id="widget-name" name="name" type="text" class="form-control" placeholder="Video Name"/>
+            <input ng-model="model.widget.name" id="widget-name" name="name" type="text" class="form-control"
+                   placeholder="My Header" required/>
+            <span ng-show="form.name.$error.required && model.submitted" class="help-block">
+                Widget name is required
+            </span>
         </div>
+
         <div class="form-group">
             <label for="widget-text">Text</label>
-            <input ng-model="model.widget.text" id="widget-text" name="text" type="text" class="form-control" placeholder="Video Text"/>
+            <input ng-model="model.widget.text" id="widget-text" type="text" class="form-control"
+                   placeholder="My Youtube Video Text"/>
         </div>
+
         <div class="form-group">
             <label for="widget-url">URL</label>
-            <input ng-model="model.widget.url" id="widget-url" name="w-url" type="text" class="form-control" value="https://youtu.be/j_pC0-Jfsq0" placeholder="Video Link"/>
+            <input ng-model="model.widget.url" id="widget-url" type="text" class="form-control"
+                   placeholder="https://youtu.be/kahxbvaxd"/>
         </div>
+
         <div class="form-group">
             <label for="widget-width">Width</label>
-            <input ng-model="model.widget.width" id="widget-width" name="width" type="text" class="form-control" placeholder="100%"/>
+            <input ng-model="model.widget.width" id="widget-width" type="text" class="form-control" placeholder="100%"/>
         </div>
-        <a class="btn btn-block btn-danger" ng-click="model.deleteWidget()">Delete</a>
+
+        <a ng-click="model.deleteWidget()"
+           class="btn btn-block btn-danger">
+            Delete
+        </a>
     </form>
 </div>

@@ -1,16 +1,24 @@
 <div class="container-fluid">
-    <form>
-        <div class="form-group">
+    <form name="form" role="form">
+        <div class="form-group"
+             ng-class="{ 'has-error': form.name.$error.required && model.submitted}">
             <label for="widget-name">Name</label>
-            <input ng-model="model.widget.name" name="name" id="widget-name" type="text" class="form-control" placeholder="page name"/>
+            <input ng-model="model.widget.name" id="widget-name" name="name" type="text" class="form-control"
+                   placeholder="My Header"
+            <span ng-show="form.name.$error.required && model.submitted" class="help-block">
+                Widget name is required
+            </span>
         </div>
+
         <div class="form-group">
             <label for="widget-text">Text</label>
-            <input ng-model="model.widget.text" name="text" id="widget-text" type="text" class="form-control" placeholder="heading"/>
+            <input ng-model="model.widget.text" id="widget-text" type="text" class="form-control"
+                   placeholder="This Is My Header"/>
         </div>
+
         <div class="form-group">
             <label for="widget-size">Size</label>
-            <select ng-model="model.widget.size" ng-init="model.widget.size='2'" id="widget-size" class="form-control">
+            <select ng-model="model.widget.size" ng-init="model.widget.size='2'" class="form-control" id="widget-size">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -19,6 +27,10 @@
                 <option value="6">6</option>
             </select>
         </div>
-        <a class="btn btn-block btn-danger" ng-click="model.deleteWidget()">Delete</a>
+
+        <a ng-click="model.deleteWidget()"
+           class="btn btn-block btn-danger">
+            Delete
+        </a>
     </form>
 </div>
