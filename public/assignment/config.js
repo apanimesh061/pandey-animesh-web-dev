@@ -20,8 +20,6 @@
                 controller: "ProfileController",
                 controllerAs: "model"
             })
-            
-            //website routes
             .when("/user/:uid/website", {
                 templateUrl: "views/website/website-list.view.client.html",
                 controller: "WebsiteListController",
@@ -37,8 +35,6 @@
                 controller: "EditWebsiteController",
                 controllerAs: "model"
             })
-            
-            //page routes
             .when("/user/:uid/website/:wid/page", {
                 templateUrl: "views/page/page-list.view.client.html",
                 controller: "PageListController",
@@ -55,7 +51,6 @@
                 controllerAs: "model"
             })
             
-            //widget routes
             .when("/user/:uid/website/:wid/page/:pid/widget", {
                 templateUrl: "views/widget/widget-list.view.client.html",
                 controller: "WidgetListController",
@@ -77,8 +72,6 @@
                 controller: "FlickrImageSearchController",
                 controllerAs: "model"
             })
-
-            //default route - login
             .otherwise({
                 redirectTo: "/login"
             });
