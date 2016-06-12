@@ -5,14 +5,13 @@
 
     function PageService($http) {
 
-        var api = {
+        return {
             createPage: createPage,
             findPageByWebsiteId: findPageByWebsiteId,
             findPageById: findPageById,
             updatePage: updatePage,
             deletePage: deletePage
         };
-        return api;
 
         function createPage(websiteId, page) {
             return $http.post("/api/website/" + websiteId + "/page", page);

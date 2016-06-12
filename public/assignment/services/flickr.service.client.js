@@ -1,23 +1,20 @@
-(function() {
+(function () {
     angular
         .module("WebAppMaker")
         .factory("FlickrService", FlickrService);
 
-    var key = "1a9bd9a407ef23ef7f54823fc61ee739";
-    var urlBase = "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=API_KEY&text=TEXT";
-
     function FlickrService($http) {
-
-        var api = {
-                searchPhotos: searchPhotos
-        };
-        return api;
-
+        var FLICKR_API_KEY = "33c19c6c05cc6888fb65f6a6e28b0eac";
+        var FLICKR_API_SECRET = "cd8a153e731db659";
+        var flickr_url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key="
+            + FLICKR_API_KEY + "&text=";
 
         function searchPhotos(searchTerm) {
-            return $http.get(urlBase.replace("API_KEY", key).replace("TEXT", searchTerm));
+            return $http.get(flickr_url + searchTerm);
         }
 
+        return {
+            searchPhotos: searchPhotos
+        };
     }
-
 })();

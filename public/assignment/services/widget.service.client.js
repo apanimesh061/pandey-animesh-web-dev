@@ -5,16 +5,6 @@
 
     function WidgetService($http) {
 
-        var api = {
-            createWidget: createWidget,
-            findWidgetsByPageId: findWidgetsByPageId,
-            findWidgetById: findWidgetById,
-            updateWidget: updateWidget,
-            deleteWidget: deleteWidget,
-            reorderWidget: reorderWidget
-        };
-        return api;
-
         function createWidget(pageId, widget) {
             return $http.post("/api/page/" + pageId + "/widget", widget);
         }
@@ -39,5 +29,13 @@
             return $http.put("/api/page/" + pageId + "/widget?start=" + startIndex + "&end=" + endIndex);
         }
 
+        return {
+            createWidget: createWidget,
+            findWidgetsByPageId: findWidgetsByPageId,
+            findWidgetById: findWidgetById,
+            updateWidget: updateWidget,
+            deleteWidget: deleteWidget,
+            reorderWidget: reorderWidget
+        };
     }
 })();

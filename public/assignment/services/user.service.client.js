@@ -5,7 +5,7 @@
 
     function UserService($http) {
 
-        var api = {
+        return {
             createUser: createUser,
             findUserById: findUserById,
             findUserByUsername: findUserByUsername,
@@ -13,7 +13,6 @@
             updateUser: updateUser,
             deleteUser: deleteUser
         };
-        return api;
 
         function createUser(username, password) {
             var url = "/api/user";

@@ -5,15 +5,6 @@
 
     function WebsiteService($http) {
 
-        var api = {
-            createWebsite: createWebsite,
-            findWebsitesByUser: findWebsitesByUser,
-            findWebsiteById: findWebsiteById,
-            updateWebsite: updateWebsite,
-            deleteWebsite: deleteWebsite
-        };
-        return api;
-
         function createWebsite(userId, website) {
             return $http.post("/api/user/" + userId + "/website", website);
         }
@@ -33,5 +24,13 @@
         function deleteWebsite(websiteId) {
             return $http.delete("/api/website/" + websiteId);
         }
+
+        return {
+            createWebsite: createWebsite,
+            findWebsitesByUser: findWebsitesByUser,
+            findWebsiteById: findWebsiteById,
+            updateWebsite: updateWebsite,
+            deleteWebsite: deleteWebsite
+        };
     }
 })();
