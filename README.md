@@ -11,3 +11,6 @@ Assignment 3:
 
 Assignment 4:
 [OpenShift URL](http://webdev-apanimesh061.rhcloud.com) (Redeploy with Release `assignment4`)
+
+Assignment 5:
+[OpenShift URL](http://webdev-apanimesh061.rhcloud.com)
