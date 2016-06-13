@@ -1,3 +1,7 @@
 module.exports = Object.freeze({
-    DEFAULT_WIDGET_NAME: ''
+    DEFAULT_WIDGET_PLACEHOLDER: '',
+    DEFAULT_WIDGET_WIDTH: '100%',
+    DEFAULT_WIDGET_HEIGHT: 'auto',
+    DEFAULT_WIDGET_ROWS: 1,
+    DEFAULT_WIDGET_SIZE: 1
 });

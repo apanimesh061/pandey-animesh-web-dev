@@ -8,10 +8,18 @@ module.exports = function() {
         lastName: String,
         email: String,
         phone: String,
-        websites: [{type: mongoose.Schema.Types.ObjectId, ref: 'Website'}],
-        dateCreate: {type: Date, default: Date.now()},
+        websites: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Website'
+        }],
+        dateCreate: {
+            type: Date,
+            default: Date.now()
+        },
         dateUpdated: Date
-    }, {collection: "assignment.user"});
+    }, {
+        collection: "assignment.user"
+    });
     
     return UserSchema;
 };

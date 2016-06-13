@@ -1,8 +1,8 @@
-module.exports = function(app, models) {
+module.exports = function (app, models) {
 
     var userModel = models.userModel;
-    
-    app.get("/api/user", getUsers); // handles : /api/user, /api/user?username=username, and /api/user?username=username&password=password
+
+    app.get("/api/user", getUsers);
     app.post("/api/user", createUser);
     app.get("/api/user/:userId", findUserById);
     app.put("/api/user/:userId", updateUser);
@@ -13,15 +13,15 @@ module.exports = function(app, models) {
         userModel
             .findUserByUsername(newUser.username)
             .then(
-                function(user) {
-                    if(!user) {
+                function (user) {
+                    if (!user) {
                         userModel
                             .createUser(newUser)
                             .then(
-                                function(user) {
+                                function (user) {
                                     res.json(user);
                                 },
-                                function(error) {
+                                function (error) {
                                     res.status(400).send("Unable to create new user: " + newUser.username);
                                 }
                             );
@@ -30,7 +30,7 @@ module.exports = function(app, models) {
                         res.status(400).send("Username " + newUser.username + " is already in use");
                     }
                 },
-                function(error) {
+                function (error) {
                     res.status(400).send(error);
                 }
             )
@@ -42,10 +42,10 @@ module.exports = function(app, models) {
         userModel
             .deleteUser(userId)
             .then(
-                function(status) {
+                function (status) {
                     res.sendStatus(200);
                 },
-                function(error) {
+                function (error) {
                     res.status(404).send("Unable to remove user with ID " + userId);
                 }
             );
@@ -57,10 +57,10 @@ module.exports = function(app, models) {
         userModel
             .updateUser(userId, newUser)
             .then(
-                function(user) {
+                function (user) {
                     res.sendStatus(200);
                 },
-                function(error) {
+                function (error) {
                     res.status(404).send("Unable to update user with ID " + userId);
                 }
             );
@@ -69,7 +69,7 @@ module.exports = function(app, models) {
     function getUsers(req, res) {
         var username = req.query['username'];
         var password = req.query['password'];
-        if(username && password) {
+        if (username && password) {
             findUserByCredentials(username, password, res);
         }
         else if (username) {
@@ -84,15 +84,15 @@ module.exports = function(app, models) {
         userModel
             .findUserByCredentials(username, password)
             .then(
-                function(user) {
-                    if(user) {
+                function (user) {
+                    if (user) {
                         res.json(user);
                     }
                     else {
                         res.status(403).send("Username and Password Not Found");
                     }
                 },
-                function(error) {
+                function (error) {
                     res.status(403).send("Unable to login");
                 }
             );
@@ -102,10 +102,10 @@ module.exports = function(app, models) {
         userModel
             .findUserByUsername(username)
             .then(
-                function(user) {
+                function (user) {
                     res.json(user);
                 },
-                function(error) {
+                function (error) {
                     res.status(400).send("User with username " + username + " not found");
                 }
             );
@@ -115,10 +115,10 @@ module.exports = function(app, models) {
         var userId = req.params.userId;
         userModel.findUserById(userId)
             .then(
-                function(user) {
+                function (user) {
                     res.send(user);
                 },
-                function(error) {
+                function (error) {
                     res.status(400).send(error);
                 }
             );

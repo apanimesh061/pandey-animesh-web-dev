@@ -1,42 +1,32 @@
 var mongoose = require("mongoose");
+var constants = require("../../constants/schemaConstants");
 
-module.exports = function() {
+module.exports = function () {
     var WidgetSchema = require("./widget.schema.server")();
     var Widget = mongoose.model("Widget", WidgetSchema);
-
-    var api = {
-        createWidget: createWidget,
-        findAllWidgetsForPage: findAllWidgetsForPage,
-        findWidgetById: findWidgetById,
-        updateWidget: updateWidget,
-        deleteWidget: deleteWidget,
-        reorderWidget: reorderWidget
-    };
-
-    return api;
 
     function reorderWidget(startOrder, endOrder, pageId) {
         var start = parseInt(startOrder);
         var end = parseInt(endOrder);
         return Widget
-            .find({_page: pageId}, function(err, widgets) {
-                widgets.forEach(function(widget) {
-                    if(start < end) {
-                        if(widget.order > start && widget.order <= end) {
+            .find({_page: pageId}, function (err, widgets) {
+                widgets.forEach(function (widget) {
+                    if (start < end) {
+                        if (widget.order > start && widget.order <= end) {
                             widget.order--;
                             widget.save();
                         }
-                        else if(widget.order === start) {
+                        else if (widget.order === start) {
                             widget.order = end;
                             widget.save();
                         }
                     }
                     else {
-                        if(widget.order >= end && widget.order < start) {
+                        if (widget.order >= end && widget.order < start) {
                             widget.order++;
                             widget.save();
                         }
-                        else if(widget.order === start) {
+                        else if (widget.order === start) {
                             widget.order = end;
                             widget.save();
                         }
@@ -61,27 +51,37 @@ module.exports = function() {
     function updateWidget(widgetId, widget) {
         return Widget.update(
             {_id: widgetId},
-            {$set :
-                {
-                    name: widget.name || '',
-                    text: widget.text || '',
-                    placeholder: widget.placeholder || '',
-                    description: widget.description || '',
-                    url: widget.url || '',
-                    width: widget.width || '100%',
-                    height: widget.height || 'auto',
-                    rows: widget.rows || 1,
-                    size: widget.size || 1,
-                    class: widget.class || '',
-                    icon: widget.icon || '',
+            {
+                $set: {
+                    name: widget.name || constants.DEFAULT_WIDGET_PLACEHOLDER,
+                    text: widget.text || constants.DEFAULT_WIDGET_PLACEHOLDER,
+                    placeholder: widget.placeholder || constants.DEFAULT_WIDGET_PLACEHOLDER,
+                    description: widget.description || constants.DEFAULT_WIDGET_PLACEHOLDER,
+                    url: widget.url || constants.DEFAULT_WIDGET_PLACEHOLDER,
+                    width: widget.width || constants.DEFAULT_WIDGET_WIDTH,
+                    height: widget.height || constants.DEFAULT_WIDGET_HEIGHT,
+                    rows: widget.rows || constants.DEFAULT_WIDGET_ROWS,
+                    size: widget.size || constants.DEFAULT_WIDGET_SIZE,
+                    class: widget.class || constants.DEFAULT_WIDGET_PLACEHOLDER,
+                    icon: widget.icon || constants.DEFAULT_WIDGET_PLACEHOLDER,
                     deletable: widget.deletable || false,
                     formatted: widget.formatted || false
                 }
             }
         );
     }
-    
+
     function deleteWidget(widgetId) {
         return Widget.remove({_id: widgetId});
     }
+
+    return {
+        createWidget: createWidget,
+        findAllWidgetsForPage: findAllWidgetsForPage,
+        findWidgetById: findWidgetById,
+        updateWidget: updateWidget,
+        deleteWidget: deleteWidget,
+        reorderWidget: reorderWidget
+    };
+
 };

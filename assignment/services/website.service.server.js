@@ -1,4 +1,4 @@
-module.exports = function(app, models) {
+module.exports = function (app, models) {
 
     var websiteModel = models.websiteModel;
     var userModel = models.userModel;
@@ -16,20 +16,20 @@ module.exports = function(app, models) {
         websiteModel
             .createWebsite(userId, newWebsite)
             .then(
-                function(website) {
+                function (website) {
                     var websiteId = website._id;
                     userModel
                         .addWebsiteIdToUser(websiteId, userId)
                         .then(
-                            function(response) {
+                            function (response) {
                                 res.json(website);
                             },
-                            function(error) {
+                            function (error) {
                                 res.status(400).send(error);
                             }
                         );
                 },
-                function(error) {
+                function (error) {
                     res.status(400).send(error);
                 }
             );
@@ -37,14 +37,14 @@ module.exports = function(app, models) {
 
     function findAllWebsitesForUser(req, res) {
         var userId = req.params.userId;
-        
+
         websiteModel
             .findAllWebsitesForUser(userId)
             .then(
-                function(websites) {
+                function (websites) {
                     res.json(websites);
                 },
-                function(error) {
+                function (error) {
                     res.status(404).send(error);
                 }
             );
@@ -52,14 +52,14 @@ module.exports = function(app, models) {
 
     function findWebsiteById(req, res) {
         var websiteId = req.params.websiteId;
-        
+
         websiteModel
             .findWebsiteById(websiteId)
             .then(
-                function(website) {
+                function (website) {
                     res.json(website);
                 },
-                function(error) {
+                function (error) {
                     res.status(404).send(error);
                 }
             );
@@ -68,14 +68,14 @@ module.exports = function(app, models) {
     function updateWebsite(req, res) {
         var website = req.body;
         var websiteId = req.params.websiteId;
-        
+
         websiteModel
             .updateWebsite(websiteId, website)
             .then(
-                function(website) {
+                function (website) {
                     res.sendStatus(200);
                 },
-                function(error) {
+                function (error) {
                     res.status(404).send("Unable to update website with ID " + websiteId);
                 }
             );
@@ -87,28 +87,30 @@ module.exports = function(app, models) {
         websiteModel
             .findWebsiteById(websiteId)
             .then(
-                function(website) {
+                function (website) {
                     var userId = website._user;
 
                     return userModel
                         .removeWebsiteIdFromUser(websiteId, userId)
                 },
-                function(error) {
+                function (error) {
                     res.status(404).send("Unable to remove website ID " + websiteId + " from user");
                 }
-            ).then(
-                function(status) {
+            )
+            .then(
+                function (status) {
                     return websiteModel
                         .deleteWebsite(websiteId)
                 },
-                function(error) {
+                function (error) {
                     res.status(404).send("Unable to delete website " + websiteId);
                 }
-            ).then(
-                function(status) {
+            )
+            .then(
+                function (status) {
                     res.sendStatus(200);
                 },
-                function(error) {
+                function (error) {
                     res.status(404).send("Unable to remove website with ID " + websiteId);
                 }
             )

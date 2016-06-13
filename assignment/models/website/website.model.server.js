@@ -1,10 +1,10 @@
 var mongoose = require("mongoose");
 
-module.exports = function() {
+module.exports = function () {
     var WebsiteSchema = require("./website.schema.server")();
     var Website = mongoose.model("Website", WebsiteSchema);
 
-    var api = {
+    return {
         createWebsite: createWebsite,
         findAllWebsitesForUser: findAllWebsitesForUser,
         findWebsiteById: findWebsiteById,
@@ -14,11 +14,9 @@ module.exports = function() {
         removePageIdFromWebsite: removePageIdFromWebsite
     };
 
-    return api;
-
     function addPageIdToWebsite(pageId, websiteId) {
         return Website.findOne({_id: websiteId},
-            function(err, doc) {
+            function (err, doc) {
                 doc.pages.push(pageId);
                 doc.save();
             });
@@ -26,7 +24,7 @@ module.exports = function() {
 
     function removePageIdFromWebsite(pageId, websiteId) {
         return Website.findOne({_id: websiteId},
-            function(err, doc) {
+            function (err, doc) {
                 doc.pages.pull(pageId);
                 doc.save();
             });
@@ -48,8 +46,8 @@ module.exports = function() {
     function updateWebsite(websiteId, website) {
         return Website.update(
             {_id: websiteId},
-            {$set :
-                {
+            {
+                $set: {
                     name: website.name,
                     description: website.description
                 }

@@ -1,24 +1,12 @@
 var mongoose = require("mongoose");
 
-module.exports = function() {
+module.exports = function () {
     var PageSchema = require("./page.schema.server")();
     var Page = mongoose.model("Page", PageSchema);
 
-    var api = {
-        createPage: createPage,
-        findAllPagesForWebsite: findAllPagesForWebsite,
-        findPageById: findPageById,
-        updatePage: updatePage,
-        deletePage: deletePage,
-        addWidgetIdToPage: addWidgetIdToPage,
-        removeWidgetIdFromPage: removeWidgetIdFromPage
-    };
-
-    return api;
-
     function addWidgetIdToPage(widgetId, pageId) {
         return Page.findOne({_id: pageId},
-            function(err, doc) {
+            function (err, doc) {
                 doc.widgets.push(widgetId);
                 doc.save();
             });
@@ -26,7 +14,7 @@ module.exports = function() {
 
     function removeWidgetIdFromPage(widgetId, pageId) {
         return Page.findOne({_id: pageId},
-            function(err, doc) {
+            function (err, doc) {
                 doc.widgets.pull(widgetId);
                 doc.save();
             });
@@ -48,8 +36,8 @@ module.exports = function() {
     function updatePage(pageId, page) {
         return Page.update(
             {_id: pageId},
-            {$set :
-                {
+            {
+                $set: {
                     name: page.name,
                     title: page.title
                 }
@@ -60,4 +48,15 @@ module.exports = function() {
     function deletePage(pageId) {
         return Page.remove({_id: pageId});
     }
+
+    return {
+        createPage: createPage,
+        findAllPagesForWebsite: findAllPagesForWebsite,
+        findPageById: findPageById,
+        updatePage: updatePage,
+        deletePage: deletePage,
+        addWidgetIdToPage: addWidgetIdToPage,
+        removeWidgetIdFromPage: removeWidgetIdFromPage
+    };
+
 };
