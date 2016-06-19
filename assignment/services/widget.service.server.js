@@ -1,10 +1,14 @@
+var responseStatus = require("../constants/responseStatus");
+
 module.exports = function (app, models) {
 
     var widgetModel = models.widgetModel;
     var pageModel = models.pageModel;
 
     var multer = require('multer');
-    var upload = multer({dest: __dirname + '/../../public/uploads'});
+    var upload = multer({
+        dest: __dirname + '/../../public/uploads'
+    });
 
     app.post("/api/upload", upload.single('myFile'), uploadImage);
 
@@ -25,10 +29,10 @@ module.exports = function (app, models) {
             .reorderWidget(startIndex, endIndex, pageId)
             .then(
                 function (widget) {
-                    res.sendStatus(200);
+                    res.sendStatus(responseStatus.OK);
                 },
                 function (error) {
-                    res.status(404)
+                    res.status(responseStatus.INTERNAL_ERROR)
                         .send("Unable to reorder widget on page " + pageId);
                 }
             )
@@ -68,7 +72,8 @@ module.exports = function (app, models) {
                         .updateWidget(widgetId, widget)
                 },
                 function (error) {
-                    res.status(404).send(error);
+                    res.status(responseStatus.INTERNAL_ERROR)
+                        .send(error);
                 }
             )
             .then(
@@ -76,7 +81,8 @@ module.exports = function (app, models) {
                     res.redirect(finalRedirectUrl);
                 },
                 function (error) {
-                    res.status(404).send("Unable to update widget with ID " + widgetId);
+                    res.status(responseStatus.INTERNAL_ERROR)
+                        .send("Unable to update widget with ID " + widgetId);
                 }
             )
     }
@@ -90,12 +96,11 @@ module.exports = function (app, models) {
             .then(
                 function (widgets) {
                     newWidget.order = widgets.length;
-
                     return widgetModel
                         .createWidget(pageId, newWidget)
                 },
                 function (error) {
-                    res.status(400).send(error);
+                    res.status(responseStatus.INTERNAL_ERROR).send(error);
                 }
             )
             .then(
@@ -107,12 +112,12 @@ module.exports = function (app, models) {
                                 res.json(widget);
                             },
                             function (error) {
-                                res.status(400).send(error);
+                                res.status(responseStatus.INTERNAL_ERROR).send(error);
                             }
                         )
                 },
                 function (error) {
-                    res.status(400).send(error);
+                    res.status(responseStatus.NOT_FOUND).send(error);
                 }
             );
     }
@@ -127,7 +132,7 @@ module.exports = function (app, models) {
                     res.json(widgets);
                 },
                 function (error) {
-                    res.status(404).send(error);
+                    res.status(responseStatus.NOT_FOUND).send(error);
                 }
             );
     }
@@ -142,7 +147,7 @@ module.exports = function (app, models) {
                     res.json(widget);
                 },
                 function (error) {
-                    res.status(404).send(error);
+                    res.status(responseStatus.NOT_FOUND).send(error);
                 }
             );
     }
@@ -155,10 +160,11 @@ module.exports = function (app, models) {
             .updateWidget(widgetId, widget)
             .then(
                 function (widget) {
-                    res.sendStatus(200);
+                    res.sendStatus(responseStatus.OK);
                 },
                 function (error) {
-                    res.status(404).send("Unable to update widget with ID " + widgetId);
+                    res.status(responseStatus.INTERNAL_ERROR)
+                        .send("Unable to update widget with ID " + widgetId);
                 }
             );
     }
@@ -175,7 +181,7 @@ module.exports = function (app, models) {
                         .removeWidgetIdFromPage(widgetId, pageId)
                 },
                 function (error) {
-                    res.status(404).send("Unable to find widget " + widgetId);
+                    res.status(responseStatus.NOT_FOUND).send("Unable to find widget " + widgetId);
                 }
             )
             .then(
@@ -184,15 +190,17 @@ module.exports = function (app, models) {
                         .deleteWidget(widgetId)
                 },
                 function (error) {
-                    res.status(404).send("Unable to remove widget ID " + widgetId + " from page " + pageId);
+                    res.status(responseStatus.INTERNAL_ERROR)
+                        .send("Unable to remove widget ID " + widgetId + " from page " + pageId);
                 }
             )
             .then(
                 function (status) {
-                    res.sendStatus(200);
+                    res.sendStatus(responseStatus.OK);
                 },
                 function (error) {
-                    res.status(404).send("Unable to remove widget with ID " + widgetId);
+                    res.status(responseStatus.INTERNAL_ERROR)
+                        .send("Unable to remove widget with ID " + widgetId);
                 }
             );
     }

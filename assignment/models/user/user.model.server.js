@@ -5,7 +5,7 @@ module.exports = function () {
     var UserSchema = require("./user.schema.server")();
     var User = mongoose.model("User", UserSchema);
 
-    var api = {
+    return {
         createUser: createUser,
         findUserById: findUserById,
         findUserByCredentials: findUserByCredentials,
@@ -13,9 +13,9 @@ module.exports = function () {
         updateUser: updateUser,
         deleteUser: deleteUser,
         addWebsiteIdToUser: addWebsiteIdToUser,
-        removeWebsiteIdFromUser: removeWebsiteIdFromUser
+        removeWebsiteIdFromUser: removeWebsiteIdFromUser,
+        findUserByFacebookId: findUserByFacebookId
     };
-    return api;
 
     function addWebsiteIdToUser(websiteId, userId) {
         return User.findOne({_id: userId},
@@ -42,6 +42,7 @@ module.exports = function () {
     }
 
     function findUserByCredentials(username, password) {
+        console.log(username);
         return User.findOne({username: username, password: password});
     }
 
@@ -64,5 +65,13 @@ module.exports = function () {
 
     function deleteUser(userId) {
         return User.remove({_id: userId});
+    }
+
+    function findUserByFacebookId(facebookId) {
+        return User.findOne(
+            {
+                'facebook.id': facebookId
+            }
+        );
     }
 };

@@ -14,9 +14,7 @@
         function register(username, password, verifypassword) {
             vm.submitted = true;
             if (username && password && verifypassword) {
-                
                 if (password === verifypassword) {
-
                     UserService
                         .createUser(username, password)
                         .then(

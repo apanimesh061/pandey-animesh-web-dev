@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-module.exports = function() {
+module.exports = function () {
     var WebsiteSchema = mongoose.Schema({
         _user: {
             type: mongoose.Schema.Types.ObjectId,
@@ -19,6 +19,6 @@ module.exports = function() {
     }, {
         collection: "assignment.website"
     });
-    
+
     return WebsiteSchema;
 };

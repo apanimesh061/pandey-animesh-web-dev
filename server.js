@@ -2,11 +2,26 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var assignment = require('./assignment/app.js');
+var cookieParser = require("cookie-parser");
+var session = require("express-session");
+var passport = require("passport");
 
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
+
+/**
+ * For parsing the cookies
+ */
+app.use(cookieParser());
+app.use(session({secret: "randomsecretsession"}));
+
+/**
+ * 
+ */
+app.use(passport.initialize());
+app.use(passport.session());
 
 assignment(app);
 

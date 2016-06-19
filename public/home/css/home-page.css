@@ -22,6 +22,10 @@ footer {
     .navbar-fixed-top .navbar-brand {
         padding: 15px 0;
     }
+
+    .container {
+        width: 1000px;
+    }
 }
 
 .my-photo {

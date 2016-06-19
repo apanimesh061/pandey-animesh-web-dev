@@ -26,32 +26,32 @@
     <form>
         <div class="form-group">
             <label for="username">Username</label>
-            <input ng-model="model.user.username" id="username" type="text" class="form-control" placeholder="alice"/>
+            <input ng-model="model.user.username" id="username" type="text" class="form-control" placeholder="name"/>
         </div>
-
 
         <div class="form-group">
             <label for="email">Email</label>
-            <input ng-model="model.user.email" id="email" type="email" class="form-control" placeholder="alice@wonderland.com"/>
+            <input ng-model="model.user.email" id="email" type="email" class="form-control"
+                   placeholder="email@smtp.com"/>
         </div>
 
         <div class="form-group">
             <label for="first-name">First Name</label>
-            <input ng-model="model.user.firstName" id="first-name" type="text" class="form-control" placeholder="Alice"/>
+            <input ng-model="model.user.firstName" id="first-name" type="text" class="form-control"
+                   placeholder="First Name"/>
         </div>
 
         <div class="form-group">
             <label for="last-name">Last Name</label>
-            <input ng-model="model.user.lastName" id="last-name" type="text" class="form-control" placeholder="Wonderland"/>
+            <input ng-model="model.user.lastName" id="last-name" type="text" class="form-control"
+                   placeholder="Last Name"/>
         </div>
 
-        <a class="btn btn-block btn-primary"
-           href="#/user/{{model.user._id}}/website">
+        <a class="btn btn-block btn-primary" href="#/user/{{model.user._id}}/website">
             Websites
         </a>
 
-        <a class="btn btn-block btn-danger"
-           href="#/login">
+        <a class="btn btn-block btn-danger" href="#/login">
             Logout
         </a>
         <a ng-click="model.unRegister()"

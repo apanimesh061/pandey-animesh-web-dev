@@ -1,6 +1,6 @@
-module.exports = function() {
+module.exports = function () {
     var mongoose = require("mongoose");
-    
+
     var UserSchema = mongoose.Schema({
         username: String,
         password: String,
@@ -16,10 +16,15 @@ module.exports = function() {
             type: Date,
             default: Date.now()
         },
-        dateUpdated: Date
+        dateUpdated: Date,
+        facebook: {
+            id: String,
+            token: String,
+            displayName: String
+        }
     }, {
         collection: "assignment.user"
     });
-    
+
     return UserSchema;
 };
