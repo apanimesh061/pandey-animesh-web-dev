@@ -16,7 +16,7 @@ app.use(express.static(__dirname + '/public'));
  */
 app.use(cookieParser());
 app.use(session({
-    secret: "randomsecretsession",
+    secret: process.env.SESSION_SECRET,
     /**
      * providing resave and saveUninitialized
      * to solve deprecation warnings
