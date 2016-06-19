@@ -57,7 +57,7 @@
             UserService
                 .deleteUser(uid)
                 .then(
-                    function(response) {
+                    function(res) {
                         $location.url("/login");
                     },
                     function(error) {

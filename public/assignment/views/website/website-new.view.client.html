@@ -19,7 +19,6 @@
 </header>
 
 <div class="container-fluid">
-
     <div ng-if="model.error" class="alert alert-danger" role="alert">
         {{model.error}}
     </div>
@@ -36,10 +35,7 @@
 
         <div class="form-group">
             <label for="description">Website Description</label>
-            <textarea rows="3"
-                      ng-model="description"
-                      id="description"
-                      class="form-control"
+            <textarea rows="3" ng-model="description" id="description" class="form-control"
                       placeholder="Description"></textarea>
         </div>
     </form>

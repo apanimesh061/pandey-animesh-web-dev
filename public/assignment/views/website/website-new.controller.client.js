@@ -13,8 +13,6 @@
         function createWebsite(name, description) {
             vm.submitted = true;
             if (name != null && name != "") {
-                var id = (new Date).getTime();
-
                 var newWebsite = {
                     name: name,
                     developerId: vm.uid,
@@ -38,6 +36,6 @@
                 vm.error = "Please Enter a Website Name";
             }
         }
-
     }
+    
 })();

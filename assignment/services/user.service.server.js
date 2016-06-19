@@ -7,16 +7,10 @@ module.exports = function(app, models) {
 
     var userModel = models.userModel;
 
-    // var facebookConfig = {
-    //     clientID     : process.env.FACEBOOK_CLIENT_ID,
-    //     clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
-    //     callbackURL  : process.env.FACEBOOK_CALLBACK_URL
-    // };
-
     var facebookConfig = {
-        clientID     : "1169155639793636",
-        clientSecret : "d6ccaae382d32a5f01c12e3c05a11452",
-        callbackURL  : "http://localhost:3500/auth/facebook/callback"
+        clientID     : process.env.FACEBOOK_CLIENT_ID,
+        clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
+        callbackURL  : process.env.FACEBOOK_CALLBACK_URL
     };
 
     app.get("/api/user", getUsers);
@@ -49,25 +43,6 @@ module.exports = function(app, models) {
             next();
         }
     }
-
-    // function admin(req, res, next) {
-    //     userModel
-    //         .isAdmin(req.user._id)
-    //         .then(
-    //             function(response) {
-    //                 if (!req.isAuthenticated()) {
-    //                     res.sendStatus(401);
-    //                 }
-    //                 else {
-    //                     next();
-    //                 }
-    //             },
-    //             function(error) {
-    //
-    //             }
-    //         );
-    //
-    // }
 
     function serializeUser(user, done) {
         done(null, user);
