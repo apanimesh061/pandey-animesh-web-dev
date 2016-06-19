@@ -30,7 +30,8 @@
         <div class="form-group"
              ng-class="{ 'has-error': form.name.$error.required && model.submitted}">
             <label for="name">Name</label>
-            <input ng-model="name" name="name" id="name" type="text" class="form-control" required/>
+            <input ng-model="name" name="name" id="name" type="text" class="form-control" placeholder="Page Name"
+                   required/>
             <span ng-show="form.name.$error.required && model.submitted" class="help-block">
                 Page name is required
             </span>

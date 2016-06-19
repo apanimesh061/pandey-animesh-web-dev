@@ -9,14 +9,13 @@
 
         vm.login = function login(username, password) {
             vm.submitted = true;
-
-            if (null != username) {
+            if (username != null) {
                 UserService
                     .login(username.toLowerCase(), password)
                     .then(
                         function(response) {
                             var user = response.data;
-                            if(user) {
+                            if (user) {
                                 $rootScope.currentUser = user;
                                 $location.url("/user/" + user._id);
                                 vm.submitted = false;
@@ -26,7 +25,8 @@
                             vm.error = "Incorrect Username or Password";
                         }
                     );
-            } else {
+            }
+            else {
                 vm.error = "Please enter a username";
             }
         }

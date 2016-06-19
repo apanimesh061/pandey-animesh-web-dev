@@ -24,13 +24,14 @@
             }
         }
         init();
-
+        
         function logout() {
             $rootScope.currentUser = null;
+
             UserService
                 .logout()
                 .then(
-                    function(res) {
+                    function(response) {
                         $location.url("/login");
                     },
                     function(error) {
@@ -56,7 +57,7 @@
             UserService
                 .deleteUser(uid)
                 .then(
-                    function(res) {
+                    function(response) {
                         $location.url("/login");
                     },
                     function(error) {

@@ -1,11 +1,23 @@
-var responseStatus = require("../constants/responseStatus");
-var passport = require("passport");
-var LocalStrategy = require("passport-local").Strategy;
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var bcrypt = require("bcrypt-nodejs");
 
-module.exports = function (app, models) {
+module.exports = function(app, models) {
+
     var userModel = models.userModel;
+
+    // var facebookConfig = {
+    //     clientID     : process.env.FACEBOOK_CLIENT_ID,
+    //     clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
+    //     callbackURL  : process.env.FACEBOOK_CALLBACK_URL
+    // };
+
+    var facebookConfig = {
+        clientID     : "1169155639793636",
+        clientSecret : "d6ccaae382d32a5f01c12e3c05a11452",
+        callbackURL  : "http://localhost:3500/auth/facebook/callback"
+    };
 
     app.get("/api/user", getUsers);
     app.post("/api/login", passport.authenticate('wam'), login);
@@ -28,14 +40,34 @@ module.exports = function (app, models) {
     passport.serializeUser(serializeUser);
     passport.deserializeUser(deserializeUser);
 
+
     function authorized(req, res, next) {
         if (!req.isAuthenticated()) {
-            res.sendStatus(responseStatus.FORBIDDEN);
+            res.sendStatus(401);
         }
         else {
             next();
         }
     }
+
+    // function admin(req, res, next) {
+    //     userModel
+    //         .isAdmin(req.user._id)
+    //         .then(
+    //             function(response) {
+    //                 if (!req.isAuthenticated()) {
+    //                     res.sendStatus(401);
+    //                 }
+    //                 else {
+    //                     next();
+    //                 }
+    //             },
+    //             function(error) {
+    //
+    //             }
+    //         );
+    //
+    // }
 
     function serializeUser(user, done) {
         done(null, user);
@@ -104,6 +136,11 @@ module.exports = function (app, models) {
 
     }
 
+    function login(req, res) {
+        var user = req.user;
+        res.json(user);
+    }
+
     function register(req, res) {
         var username = req.body.username;
         var password = req.body.password;
@@ -157,36 +194,30 @@ module.exports = function (app, models) {
         }
     }
 
-    function login(req, res) {
-        var user = req.user;
-        res.json(user);
-    }
 
     function createUser(req, res) {
         var newUser = req.body;
         userModel
             .findUserByUsername(newUser.username)
             .then(
-                function (user) {
-                    if (!user) {
+                function(user) {
+                    if(!user) {
                         userModel
                             .createUser(newUser)
                             .then(
-                                function (user) {
+                                function(user) {
                                     res.json(user);
                                 },
-                                function (error) {
-                                    res.status(400)
-                                        .send("Unable to create new user: " + newUser.username);
+                                function(error) {
+                                    res.status(400).send("Unable to create new user: " + newUser.username);
                                 }
                             );
                     }
                     else {
-                        res.status(400)
-                            .send("Username " + newUser.username + " is already in use");
+                        res.status(400).send("Username " + newUser.username + " is already in use");
                     }
                 },
-                function (error) {
+                function(error) {
                     res.status(400).send(error);
                 }
             )
@@ -198,10 +229,10 @@ module.exports = function (app, models) {
         userModel
             .deleteUser(userId)
             .then(
-                function (status) {
+                function(status) {
                     res.sendStatus(200);
                 },
-                function (error) {
+                function(error) {
                     res.status(404).send("Unable to remove user with ID " + userId);
                 }
             );
@@ -213,10 +244,10 @@ module.exports = function (app, models) {
         userModel
             .updateUser(userId, newUser)
             .then(
-                function (user) {
+                function(user) {
                     res.sendStatus(200);
                 },
-                function (error) {
+                function(error) {
                     res.status(404).send("Unable to update user with ID " + userId);
                 }
             );
@@ -225,11 +256,11 @@ module.exports = function (app, models) {
     function getUsers(req, res) {
         var username = req.query['username'];
         var password = req.query['password'];
-        if (username && password) {
+        if(username && password) {
             findUserByCredentials(username, password, req, res);
         }
         else if (username) {
-            findUserByUsername(username, res);
+            findUserByUsername(username, req, res);
         }
         else {
             res.status(403).send("Username and Password not Provided");
@@ -237,31 +268,32 @@ module.exports = function (app, models) {
     }
 
     function findUserByCredentials(username, password, req, res) {
+        req.session.username = username;
         userModel
             .findUserByCredentials(username, password)
             .then(
-                function (user) {
-                    if (user) {
+                function(user) {
+                    if(user) {
                         res.json(user);
                     }
                     else {
                         res.status(403).send("Username and Password Not Found");
                     }
                 },
-                function (error) {
+                function(error) {
                     res.status(403).send("Unable to login");
                 }
             );
     }
 
-    function findUserByUsername(username, res) {
+    function findUserByUsername(username, req, res) {
         userModel
             .findUserByUsername(username)
             .then(
-                function (user) {
+                function(user) {
                     res.json(user);
                 },
-                function (error) {
+                function(error) {
                     res.status(400).send("User with username " + username + " not found");
                 }
             );
@@ -271,10 +303,10 @@ module.exports = function (app, models) {
         var userId = req.params.userId;
         userModel.findUserById(userId)
             .then(
-                function (user) {
+                function(user) {
                     res.send(user);
                 },
-                function (error) {
+                function(error) {
                     res.status(400).send(error);
                 }
             );

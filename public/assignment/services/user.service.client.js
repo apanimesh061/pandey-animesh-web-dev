@@ -5,18 +5,14 @@
 
     function UserService($http) {
 
-        return {
-            login: login,
-            register: register,
-            logout: logout,
-            checkLoggedin: checkLoggedin,
-            createUser: createUser,
-            findUserById: findUserById,
-            findUserByUsername: findUserByUsername,
-            findUserByCredentials: findUserByCredentials,
-            updateUser: updateUser,
-            deleteUser: deleteUser
-        };
+        function login(username, password) {
+            var url = "/api/login";
+            var user = {
+                username: username,
+                password: password
+            };
+            return $http.post(url, user);
+        }
 
         function register(username, password) {
             var user = {
@@ -34,18 +30,10 @@
             return $http.get("/api/loggedin");
         }
 
-        function login(username, password) {
-            var user = {
-                username: username,
-                password: password
-            };
-            return $http.post("/api/login", user);
-        }
-
         function createUser(username, password) {
             var url = "/api/user";
             var user = {
-                username: username, 
+                username: username,
                 password: password
             };
             return $http.post(url, user);
@@ -70,11 +58,24 @@
             var url = "/api/user/" + userId;
             return $http.put(url, user);
         }
-        
+
         function deleteUser(userId) {
             var url="/api/user/" + userId;
             return $http.delete(url);
         }
+
+        return {
+            login: login,
+            register: register,
+            logout: logout,
+            checkLoggedin: checkLoggedin,
+            createUser: createUser,
+            findUserById: findUserById,
+            findUserByUsername: findUserByUsername,
+            findUserByCredentials: findUserByCredentials,
+            updateUser: updateUser,
+            deleteUser: deleteUser
+        };
     }
 
 })();

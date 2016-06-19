@@ -15,7 +15,15 @@ app.use(express.static(__dirname + '/public'));
  * For parsing the cookies
  */
 app.use(cookieParser());
-app.use(session({secret: "randomsecretsession"}));
+app.use(session({
+    secret: "randomsecretsession",
+    /**
+     * providing resave and saveUninitialized
+     * to solve deprecation warnings
+     */
+    resave: true,
+    saveUninitialized: true
+}));
 
 /**
  * 
