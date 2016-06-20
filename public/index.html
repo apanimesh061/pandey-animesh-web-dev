@@ -1,27 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
+
+
 <head>
     <meta charset="UTF-8">
-    <title>Web Dev Course Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Animesh Pandey's CV</title>
+
+    <link rel="icon" href="http://portal-cs5610online.rhcloud.com/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="144x144" href="home/img/apple-touch-icon-ipad-retina.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="home/img/apple-touch-icon-iphone-retina.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="home/img/apple-touch-icon-ipad.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="home/img/apple-touch-icon-iphone.png" />
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="home/css/style.css">
+    <link rel="stylesheet" href="home/css/responsive.css">
+
+    <link href='//fonts.googleapis.com/css?family=Kristi|Alegreya+Sans:300' rel='stylesheet' type='text/css'>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <!--[if IE]>
+    <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
+
 <body>
-    <h1>Web Dev Course Home Page</h1>
+<div class="container">
+    <div id="header" class="row">
+        <div class="col-sm-2">
+            <img class="propic" src="https://media.licdn.com/media/p/5/000/2a3/0c7/17e464e.jpg" alt="">
+        </div>
+        <!-- photo end-->
 
-    <p>
-        Customize this home page to your linking.
-    </p>
+        <div class="col-sm-10">
+            <div class="cv-title">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <h1>Animesh Pandey</h1>
+                    </div>
+                </div>
+                <h2>Budding Search Engineer</h2>
+            </div>
 
-    <h2>Required links</h2>
-    <ul>
-        <li>
-            <a href="project/index.html">Project</a>
-        </li>
-        <li>
-            <a href="http://webdev-apanimesh061.rhcloud.com/assignment/#/login">Assignment</a>
-        </li>
-        <li>
-            <a href="https://github.com/apanimesh061/pandey-animesh-web-dev">Your public repository at GitHub.com</a>
-        </li>
-    </ul>
+            <!-- ===========================
+            SOCIAL & CONTACT
+            ============================ -->
+            <div class="row">
+                <div class="col-sm-4">
+                    <ul class="list-unstyled">
+                        <li><a href=""><span class="social fa fa-whatsapp"></span>+1 617 373 0358</a>
+                        </li>
+                        <li><a href="mailto:pandey.an@husky.neu.edu"><span class="social fa fa-envelope-o"></span>pandey.an@husky.neu.edu</a>
+                        </li>
+                    </ul>
+                </div><!-- social 1st col end-->
+
+                <div class="col-sm-4">
+                    <ul class="list-unstyled">
+                        <li><a href="https://www.linkedin.com/in/animeshpandey" target="_blank"><span class="social fa fa-linkedin"></span>linkedin</a>
+                        </li>
+                        <li><a href="http://stackoverflow.com/users/1461896/animesh-pandey?tab=profile" target="_blank"><span class="social fa fa-stack-overflow"></span>stack-overflow</a>
+                        </li>
+                    </ul>
+                </div><!-- social 2nd col end-->
+
+                <div class="col-sm-4">
+                    <ul class="list-unstyled">
+                        <li><a href="https://github.com/apanimesh061" target="_blank"><span class="social fa fa-github"></span>github</a>
+                        </li>
+                        <li><a href="https://www.facebook.com/apanimesh061" target="_blank"><span class="social fa fa-facebook"></span>facebook</a>
+                        </li>
+                    </ul>
+                </div><!-- social 3rd col end-->
+            </div><!-- header social end-->
+        </div><!-- header right end-->
+    </div><!-- header end-->
+
+    <hr class="firsthr">
+
+    <!-- ===========================
+    BODY LEFT PART
+    ============================ -->
+    <div class="col-md-8 mainleft">
+        <div id="statement" class="row mobmid">
+            <div class="col-sm-1">
+                <span class="secicon fa fa-user"></span>
+            </div><!--icon end-->
+
+            <div class="col-sm-11">
+                <h3>Personal statement </h3>
+                <p class="text-justify">Hi, I am Animesh Pandey. I have a strong desire to grow as an engineer and a programmer. I am always striving to commit better code and try to develop developer-friendly programs. While I would be most comfortable to work at a place which employs the technologies I am familiar with, I am also able to pick up new languages and frameworks quickly.</p>
+                <p class="text-justify">More than anything else, I want to work with people who truly believe in the product or service they bring to the market. I am interested in backend positions, particularly when they deal with big-data, information retrieval or data science. I can program in Python and Java, and can use tools like Lucene, Elasticsearch and Spark.</p>
+            </div><!--info end-->
+        </div><!--personal statement end-->
+    </div><!--left end-->
+
+    <!-- ===========================
+    SIDEBAR
+    =========================== -->
+    <div class="col-md-4 mainright">
+        <div class="row">
+            <div class="col-sm-1 col-md-2 mobmid">
+                <span class="secicon fa fa-magic"></span>
+            </div><!--icon end-->
+
+            <div class="col-sm-11 col-md-10">
+                <h3 class="mobmid">Technical skills</h3>
+
+                <p>Java</p>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
+                        <span class="sr-only">75% Complete (success)</span>
+                    </div>
+                </div><!--skill end-->
+
+
+                <p>Python</p>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%">
+                        <span class="sr-only">85% Complete</span>
+                    </div>
+                </div><!--skill end-->
+
+                <p>Elasticsearch/Lucene</p>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                        <span class="sr-only">60% Complete (warning)</span>
+                    </div>
+                </div><!--skill end-->
+
+                <p>Scala</p>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                        <span class="sr-only">30% Complete (danger)</span>
+                    </div>
+                </div><!--skill end-->
+            </div><!--info end-->
+        </div><!--tech skills end-->
+    </div>
+
+    <hr>
+
+    <div class="col-md-8 mainleft">
+        <div id="cs5610" class="row mobmid">
+            <div class="col-sm-1">
+                <span class="secicon fa fa-user"></span>
+            </div><!--icon end-->
+            <div class="col-sm-11">
+                <h3>CS5610 Summer-2016 (Web Development)</h3>
+                <p class="text-justify">Following are the links to the Project and Assignments for Web Development Course CS-5610 for Summer-2016:</p><br>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <a href="http://webdev-apanimesh061.rhcloud.com/assignment/#/login" class="btn btn-default" target="_blank">Assignment</a>
+                    </div>
+                    <div class="col-sm-2">
+                        <a href="#" class="btn btn-default" target="_parent">Project</a>
+                    </div>
+                    <div class="col-sm-2">
+                        <a href="https://github.com/apanimesh061/pandey-animesh-web-dev" class="btn btn-default" target="_blank">Github Repository</a>
+                    </div>
+                </div>
+            </div>
+        </div><!--personal statement end-->
+    </div><!--left end-->
+
+</div><!--container end-->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="home/js/jquery.nicescroll.min.js"></script>
+<script src="home/js/evenfly.js"></script>
 </body>
+
 </html>
