@@ -1,4 +1,3 @@
-<div class="all-pages">
 <header>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -28,16 +27,16 @@
 
     <form name="form" role="form">
         <div class="form-group" ng-class="{ 'has-error': form.name.$error.required && model.submitted}">
-            <label for="websiteName">Website Name</label>
+            <label for="websiteName">Skill Profile Name</label>
             <input ng-model="model.website.name" name="name" id="websiteName" type="text" class="form-control"
                    placeholder="Lorem Ipsum" required/>
             <span ng-show="form.name.$error.required && model.submitted" class="help-block">
-                Website name is required
+                Skill Profile name is required
             </span>
         </div>
 
         <div class="form-group">
-            <label for="description">Website Description</label>
+            <label for="description">Skill Profile Description</label>
             <textarea rows="3" ng-model="model.website.description" id="description" class="form-control"
                       placeholder="Lorem ipsum dolor sit amet..."></textarea>
         </div>
@@ -48,20 +47,19 @@
     </form>
 </div>
 
-    <nav class="navbar navbar-default navbar-fixed-bottom">
-        <div class="container-fluid header-footer">
-            <div class="navbar-header">
-                <div class="navbar-text pull-left">
-                    <a href="">
-                        <span class="glyphicon glyphicon-share-alt play-button"></span>
-                    </a>
-                </div>
-                <div class="navbar-text pull-right">
-                    <a href="#/user/{{model.uid}}">
-                        <span class="glyphicon glyphicon-user"></span>
-                    </a>
-                </div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid header-footer">
+        <div class="navbar-header">
+            <div class="navbar-text pull-left">
+                <a href="">
+                    <span class="glyphicon glyphicon-share-alt play-button"></span>
+                </a>
+            </div>
+            <div class="navbar-text pull-right">
+                <a href="#/user/{{model.uid}}">
+                    <span class="glyphicon glyphicon-user"></span>
+                </a>
             </div>
         </div>
-    </nav>
-</div>
+    </div>
+</nav>
