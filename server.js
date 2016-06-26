@@ -43,6 +43,7 @@ if (process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
 }
 
 mongoose.connect(connectionString);
+console.log("Connection status of mongodb: " + mongoose.connection.readyState);
 
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
 var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
