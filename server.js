@@ -33,7 +33,7 @@ project(app);
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var connectionString = 'mongodb://127.0.0.1:27017/webdev';
+var connectionString = 'mongodb://127.0.0.1:27017/test';
 if (process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
     connectionString = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
         process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
