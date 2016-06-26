@@ -11,7 +11,6 @@
                 username: username,
                 password: password
             };
-            console.log(user);
             return $http.post(url, user);
         }
 

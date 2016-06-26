@@ -22,7 +22,6 @@
                             }
                         },
                         function(error) {
-                            console.log(error);
                             vm.error = "Incorrect Username or Password";
                         }
                     );

@@ -1,7 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var assignment = require('./tempdir/assignment/app.js');
 var cookieParser = require("cookie-parser");
 var session = require("express-session");
 var passport = require("passport");
@@ -30,12 +29,11 @@ var project = require('./project/app.js');
 app.use(passport.initialize());
 app.use(passport.session());
 
-// assignment(app);
 project(app);
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var connectionString = 'mongodb://127.0.0.1:27017/test';
+var connectionString = 'mongodb://127.0.0.1:27017/webdev';
 if (process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
     connectionString = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
         process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
