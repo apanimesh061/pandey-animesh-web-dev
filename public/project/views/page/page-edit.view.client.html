@@ -1,0 +1,65 @@
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid header-footer">
+            <div class="navbar-header">
+                <p class="navbar-text navbar-left pull-left">
+                    <a href="#/user/{{model.uid}}/website/{{model.wid}}/page"
+                       class="navbar-link">
+                        <span class="glyphicon glyphicon-chevron-left nav-glyph"></span>
+                    </a>
+                </p>
+                <a class="navbar-brand">
+                    Manage Stream
+                </a>
+                <p class="navbar-text pull-right">
+                    <a ng-click="model.updatePage()"
+                       class="navbar-link">
+                        <span class="glyphicon glyphicon-ok nav-glyph"></span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </nav>
+
+</header>
+
+<div class="container-fluid">
+
+    <div ng-if="model.error"
+         class="alert alert-danger"
+         role="alert">
+        {{model.error}}
+    </div>
+
+    <form name="form" role="form">
+        <div class="form-group"
+             ng-class="{ 'has-error': form.name.$error.required && model.submitted}">
+            <label for="pagename">Name</label>
+            <input ng-model="model.page.name" name="name" id="pagename" type="text" class="form-control" placeholder="Stream Name" required/>
+            <span ng-show="form.name.$error.required && model.submitted" class="help-block">
+                Stream name is required
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label for="pagetitle">Title</label>
+            <input ng-model="model.page.title" id="pagetitle" type="text" class="form-control" placeholder="Stream Title"/>
+        </div>
+
+        <a ng-click="model.deletePage()" class="btn btn-block btn-danger">Delete</a>
+    </form>
+</div>
+
+<footer>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid header-footer">
+            <div class="navbar-header">
+                <div class="navbar-text pull-right">
+                    <a href="#/user/{{model.uid}}">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</footer>

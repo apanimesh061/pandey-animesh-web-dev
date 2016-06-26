@@ -1,0 +1,71 @@
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <p class="navbar-text navbar-left pull-left">
+                    <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget"
+                       class="navbar-link">
+                        <span class="glyphicon glyphicon-chevron-left nav-glyph"></span>
+                    </a>
+                </p>
+                <a class="navbar-brand">
+                    Choose Skill Type
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<br><br><br>
+
+<div class="container-fluid">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <a ng-click="model.createWidget('HEADER')" class="btn btn-info">
+                Short Skill
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a ng-click="model.createWidget('HTML')" class="btn btn-info">
+                Writeup on you skill
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a ng-click="model.createWidget('TEXT')" class="btn btn-info">
+                Mini Text
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a ng-click="model.createWidget('LINK')" class="btn btn-info">
+                Link to you skill
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a ng-click="model.createWidget('IMAGE')" class="btn btn-info">
+                Image that shows you skill
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a ng-click="model.createWidget('YOUTUBE')" class="btn btn-info">
+                YouTube videos
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a ng-click="model.createWidget('SKILL')" class="btn btn-info">
+                Rate a different Skill
+            </a>
+        </li>
+    </ul>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <div class="navbar-text pull-right">
+                <a href="#/user/{{model.uid}}">
+                    <span class="glyphicon glyphicon-user"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>

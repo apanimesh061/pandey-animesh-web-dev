@@ -1,0 +1,47 @@
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <p class="navbar-text navbar-left pull-left">
+                    <a href="#/user/{{model.uid}}/website" class="navbar-link">
+                        <span class="glyphicon glyphicon-chevron-left nav-glyph"></span>
+                    </a>
+                </p>
+                <a class="navbar-brand">Streams</a>
+                <p class="navbar-text pull-right">
+                    <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/new" class="navbar-link">
+                        <span class="glyphicon glyphicon-plus nav-glyph"></span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<br><br><br>
+
+<div class="container-fluid">
+    <ul class="list-group">
+        <li ng-repeat="page in model.pages"
+            class="list-group-item">
+            <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{page._id}}">
+                <span class="glyphicon glyphicon-cog pull-right"></span>
+            </a>
+            <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{page._id}}/widget">
+                {{page.name}}
+            </a>
+        </li>
+    </ul>
+</div>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid header-footer">
+            <div class="navbar-header">
+                <div class="navbar-text pull-right">
+                    <a href="#/user/{{model.uid}}">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>

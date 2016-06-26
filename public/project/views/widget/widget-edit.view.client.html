@@ -1,0 +1,69 @@
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <p class="navbar-text navbar-left pull-left">
+                    <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget"
+                       class="navbar-link">
+                        <span class="glyphicon glyphicon-chevron-left nav-glyph"></span>
+                    </a>
+                </p>
+                <a class="navbar-brand">
+                    Manage Skill
+                </a>
+                <p class="navbar-text pull-right">
+                    <a ng-click="model.updateWidget()"
+                       class="navbar-link">
+                        <span class="glyphicon glyphicon-ok nav-glyph"></span>
+                    </a>
+                </p>
+
+            </div>
+        </div>
+    </nav>
+
+</header>
+
+<br><br><br>
+
+<div class="container-fluid">
+    <div ng-if="model.error" class="alert alert-danger" role="alert">
+        {{model.error}}
+    </div>
+</div>
+
+<div ng-switch="model.widget.type">
+    <div ng-switch-when="HEADER">
+        <ng-include src="'views/widget/widget-header.view.client.html'">
+    </div>
+    <div ng-switch-when="IMAGE">
+        <ng-include src="'views/widget/widget-image.view.client.html'">
+    </div>
+    <div ng-switch-when="YOUTUBE">
+        <ng-include src="'views/widget/widget-youtube.view.client.html'">
+    </div>
+    <div ng-switch-when="HTML">
+        <ng-include src="'views/widget/widget-html.view.client.html'">
+    </div>
+    <div ng-switch-when="TEXT">
+        <ng-include src="'views/widget/widget-text.view.client.html'">
+    </div>
+    <div ng-switch-when="LINK">
+        <ng-include src="'views/widget/widget-link.view.client.html'">
+    </div>
+    <div ng-switch-when="SKILL">
+        <ng-include src="'views/widget/widget-skill.view.client.html'">
+    </div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid header-footer">
+        <div class="navbar-header">
+            <div class="navbar-text pull-right">
+                <a href="#/user/{{model.uid}}">
+                    <span class="glyphicon glyphicon-user"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>

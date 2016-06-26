@@ -4,10 +4,8 @@
   "description": "Web Dev at Northeastern University",
   "main": "server.js",
   "dependencies": {
-    "angular-uuid": "0.0.2",
-    "string-format": "^0.5.0",
-    "util": "^0.10.3",
     "angular-ui-router": "^0.3.1",
+    "angular-uuid": "0.0.2",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.1",
     "cookie-parser": "^1.4.3",
@@ -18,10 +16,13 @@
     "multer": "^1.1.0",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
+    "passport-google-oauth": "^1.0.0",
     "passport-local": "^1.0.0",
+    "string-format": "^0.5.0",
     "textangular": "^1.5.1",
     "type-is": "^1.6.13",
-    "ui-router": "^1.0.0-alpha.3"
+    "ui-router": "^1.0.0-alpha.3",
+    "util": "^0.10.3"
   },
   "devDependencies": {},
   "scripts": {

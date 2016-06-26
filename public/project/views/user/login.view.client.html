@@ -1,0 +1,100 @@
+<div class="all-pages">
+<header>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button"
+                        class="navbar-toggle"
+                        data-toggle="collapse"
+                        data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/">SkillHub</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/home">Home</a></li>
+                    <li><a href="#/register">Sign Up</a></li>
+                    <li><a href="#/login">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<br><br><br><br><br><br>
+
+<div class="container-fluid">
+
+    <div ng-show="model.error" class="alert alert-danger">
+        {{model.error}}
+    </div>
+
+    <header>
+        <h2>Login</h2>
+    </header>
+
+    <form name="form" role="form">
+        <div class="form-group"
+             ng-class="{ 'has-error': form.username.$error.required && model.submitted}">
+            <input ng-model="username" name="username" type="text" class="form-control" placeholder="username"
+                   required/>
+            <span ng-show="form.username.$error.required && model.submitted" class="alert-danger">
+                Username is required
+            </span>
+        </div>
+
+        <div class="form-group"
+             ng-class="{ 'has-error': form.password.$error.required && model.submitted}">
+            <input ng-model="password" name="password" id="password" type="password" class="form-control"
+                   placeholder="password" required/>
+            <span ng-show="form.password.$error.required && model.submitted" class="alert-danger">
+                Password is required
+            </span>
+        </div>
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="rememberMe"> Remember Me
+            </label>
+        </div>
+
+        <a ng-click="model.login(username, password)" class="btn btn-block btn-primary">
+            Login
+        </a>
+
+        <a class="btn btn-block btn-success" href="#/register">
+            Register
+        </a>
+
+        <a href="/auth/facebook" class="btn btn-primary btn-block">
+            <span class="fa fa-facebook"></span>
+            Facebook
+        </a>
+
+    </form>
+</div>
+
+<br><br><br>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <footer class="global-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="widget">
+                        <h5 class="footer-information">Developer</h5>
+                        <strong>Animesh Pandey</strong><br>
+                        <address>
+                            College of Computer and Information Science, Northeastern University <br> Boston, MA, 02115.
+                        </address>
+                        <p><i class="fa fa-envelope-o" aria-hidden="true"></i> pandey.an@husky.neu.edu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</nav>
+    </div>

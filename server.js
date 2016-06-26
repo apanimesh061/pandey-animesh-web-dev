@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var assignment = require('./assignment/app.js');
+var assignment = require('./tempdir/assignment/app.js');
 var cookieParser = require("cookie-parser");
 var session = require("express-session");
 var passport = require("passport");
@@ -16,7 +16,7 @@ app.use(express.static(__dirname + '/public'));
  */
 app.use(cookieParser());
 app.use(session({
-    secret: process.env.SESSION_SECRET,
+    secret: "randomstuff",
     /**
      * providing resave and saveUninitialized
      * to solve deprecation warnings
@@ -25,16 +25,13 @@ app.use(session({
     saveUninitialized: true
 }));
 
-/**
- * 
- */
+var project = require('./project/app.js');
+
 app.use(passport.initialize());
 app.use(passport.session());
 
-assignment(app);
-
-// var project = require('./project/app.js');
-// project(app);
+// assignment(app);
+project(app);
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -50,6 +47,6 @@ if (process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
 mongoose.connect(connectionString);
 
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
-var port = process.env.OPENSHIFT_NODEJS_PORT || 3500;
+var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 
 app.listen(port, ipaddress);

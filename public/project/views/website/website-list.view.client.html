@@ -1,0 +1,44 @@
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand">Skill Profiles</a>
+                    <p class="navbar-text pull-right">
+                        <a href="#/user/{{model.uid}}/website/new" class="navbar-link">
+                            <span class="glyphicon glyphicon-plus nav-glyph"></span>
+                        </a>
+                    </p>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <br><br><br>
+
+    <div class="container-fluid">
+        <ul class="list-group">
+            <li ng-repeat="website in model.websites" class="list-group-item">
+                <span class="glyphicon glyphicon-play pull-right"></span>
+
+                <a href="#/user/{{model.uid}}/website/{{website._id}}">
+                    <span class="glyphicon glyphicon-cog pull-right"></span>
+                </a>
+                <a href="#/user/{{model.uid}}/website/{{website._id}}/page">
+                    {{website.name}}
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid header-footer">
+            <div class="navbar-header">
+                <div class="navbar-text pull-right">
+                    <a href="#/user/{{model.user._id}}">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
