@@ -42,6 +42,7 @@ if (process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
         process.env.OPENSHIFT_APP_NAME;
 }
 
+console.log(connectionString);
 mongoose.connect(connectionString);
 console.log("Connection status of mongodb: " + mongoose.connection.readyState);
 
